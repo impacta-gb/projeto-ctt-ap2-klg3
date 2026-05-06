@@ -1,0 +1,32 @@
+site_name = "Documentação Go"
+site_url = "https://SEU_USUARIO.github.io/go-docs-ctt-ap2"
+site_description = "Documentação completa da linguagem Go"
+site_author = "Grupo CTT-AP2"
+
+[theme]
+name = "material"
+language = "pt"
+features = ["navigation.tabs", "navigation.sections", "navigation.top", "toc.integrate", "search.suggest", "search.highlight"]
+
+[theme.palette]
+scheme = "default"
+primary = "blue"
+accent = "light blue"
+
+[theme.palette.toggle]
+icon = "material/brightness-7"
+name = "Modo claro"
+
+markdown_extensions = [
+    { pymdownx.highlight = { anchor_linenums = true } },
+    "pymdownx.superfences",
+    "admonition",
+    "pymdownx.details",
+    "tables",
+    "attr_list",
+    "md_in_html"
+]
+
+nav = [
+    { "Início" = "index.md" }
+]
