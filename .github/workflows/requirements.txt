@@ -1,0 +1,3 @@
+zensical
+mkdocs
+mkdocs-material
