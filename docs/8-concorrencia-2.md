@@ -1,4 +1,4 @@
-# Concorrência II: Channels
+# 8. Concorrência II: Channels
 
 Channels permitem comunicação entre goroutines.
 
