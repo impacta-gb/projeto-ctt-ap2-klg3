@@ -1,4 +1,4 @@
-# Concorrência I: Goroutines
+# 7. Concorrência I: Goroutines
 
 Goroutines permitem executar funções concorrentemente.
 
