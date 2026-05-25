@@ -1,4 +1,4 @@
-# Tratamento de Erros
+# 6. Tratamento de Erros
 
 Go utiliza retorno de erros ao invés de try/catch.
 
