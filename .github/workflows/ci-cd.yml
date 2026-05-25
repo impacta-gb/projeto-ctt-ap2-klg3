@@ -75,7 +75,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: site-build
-          path: dist/
+          path: site/
 
   deploy_site:
     runs-on: ubuntu-latest
@@ -92,7 +92,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: site-build
-          path: dist
+          path: site
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
@@ -100,7 +100,7 @@ jobs:
       - name: Upload para GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: site
 
       - name: Deploy GitHub Pages
         id: deployment
