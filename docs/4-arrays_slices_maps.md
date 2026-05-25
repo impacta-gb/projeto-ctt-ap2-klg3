@@ -1,4 +1,4 @@
-# Arrays, Slices e Maps
+# 4. Arrays, Slices e Maps
 
 ## Arrays
 
