@@ -1,4 +1,4 @@
-# Introdução à Linguagem Go
+# 1. Introdução à Linguagem Go
 
 Go (ou Golang) é uma linguagem de programação criada pelo Google em 2009.
 
