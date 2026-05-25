@@ -1,4 +1,4 @@
-# Sintaxe Básica e Variáveis
+# 2. Sintaxe Básica e Variáveis
 
 ## Estrutura Básica
 
