@@ -15,11 +15,12 @@ Atualmente, Go é amplamente utilizada no desenvolvimento de:
 - DevOps e Infraestrutura
 
 Diversas empresas utilizam Go em seus produtos, como:
-- :contentReference[oaicite:0]{index=0}
-- :contentReference[oaicite:1]{index=1}
-- :contentReference[oaicite:2]{index=2}
-- :contentReference[oaicite:3]{index=3}
-- :contentReference[oaicite:4]{index=4}](https://go.dev)
+
+- Google
+- Docker
+- Uber
+- Netflix
+- Twitch
 
 ## Por que utilizar Go?
 
