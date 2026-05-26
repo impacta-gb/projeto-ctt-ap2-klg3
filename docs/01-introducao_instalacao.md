@@ -47,7 +47,7 @@ A linguagem Go foi criada para resolver problemas encontrados em linguagens trad
 
 Acesse o site oficial da linguagem:
 
-:contentReference[oaicite:5]{index=5}
+[:contentReference[oaicite:5]{index=5}](https://go.dev)
 
 Baixe a versão compatível com o seu sistema operacional e siga o assistente de instalação.
 
