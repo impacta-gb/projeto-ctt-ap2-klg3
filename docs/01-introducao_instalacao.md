@@ -19,7 +19,7 @@ Diversas empresas utilizam Go em seus produtos, como:
 - :contentReference[oaicite:1]{index=1}
 - :contentReference[oaicite:2]{index=2}
 - :contentReference[oaicite:3]{index=3}
-- :contentReference[oaicite:4]{index=4}
+- :contentReference[oaicite:4]{index=4}](https://go.dev)
 
 ## Por que utilizar Go?
 
@@ -47,7 +47,7 @@ A linguagem Go foi criada para resolver problemas encontrados em linguagens trad
 
 Acesse o site oficial da linguagem:
 
-[:contentReference[oaicite:5]{index=5}](https://go.dev)
+https://go.dev
 
 Baixe a versão compatível com o seu sistema operacional e siga o assistente de instalação.
 
