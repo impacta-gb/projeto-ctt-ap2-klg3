@@ -7,7 +7,10 @@ site_author = "Grupo CTT-AP2"
 name = "material"
 language = "pt"
 features = [
-    "navigation.expand",      
+    "navigation.sections",    
+    "navigation.top",         
+    "toc.integrate",
+    "search.suggest", 
     "search.highlight"
 ]
 
