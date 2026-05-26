@@ -14,11 +14,11 @@ Projeto acadêmino desenvolvido para a disciplina Collaboration Tools for Teams 
 
 👥 Integrantes
 
-Nome Responsabilidades
-Guilherme Sousa 2501248
-Gabriel Albuquerque 2403756
-Kassia Isabelle 2500203
-Lucca Gomes 2501551
+Nome dos Responsaveis
+Guilherme Sousa - 2501248
+Gabriel Albuquerque - 2403756
+Kassia Isabelle - 2500203
+Lucca Gomes - 2501551
 
 ---
 
@@ -27,12 +27,19 @@ Lucca Gomes 2501551
 Desenvolver um site de documentação técnica da linguagem Go utilizando o gerador estático Zensical (compatível com MkDocs), aplicando:
 
 · ✅ Fluxo colaborativo com Git e GitHub
+
 · ✅ Feature Branches + Pull Requests com Code Review
+
 · ✅ Proteção da branch main (commits diretos bloqueados)
+
 · ✅ Pipeline de CI/CD automatizado com GitHub Actions
+
 · ✅ Deploy contínuo no GitHub Pages
+
 · ✅ Testes em múltiplas versões do Python (matrix strategy)
+
 · ✅ Cache de dependências para otimização do pipeline
+
 · ✅ Rebuild semanal automático via schedule
 
 ---
@@ -86,8 +93,11 @@ Automação Matrix Build, Cache, Schedule CRON
 1. Proteção da Branch main
 
 · ✅ Commits diretos (push) bloqueados
+
 · ✅ Pull Request obrigatório para qualquer alteração
+
 · ✅ Aprovação de pelo menos 1 membro da equipe antes do merge
+
 
 2. Feature Branches
 
@@ -106,16 +116,6 @@ Exemplos:
 
 3. Fluxo Completo por Página
 
-```mermaid
-gitGraph
-    commit id: "init"
-    branch feat/doc-goroutines
-    checkout feat/doc-goroutines
-    commit id: "add goroutines content"
-    checkout main
-    merge feat/doc-goroutines tag: "PR #12 - aprovado"
-```
-
 1. Criar branch a partir da main atualizada
 2. Escrever/editar o arquivo .md correspondente
 3. git commit e git push da branch
@@ -128,9 +128,13 @@ gitGraph
 Cada PR passou por verificação de:
 
 · ✅ Markdown válido e bem formatado
+
 · ✅ Pelo menos 1 bloco de código Go com syntax highlighting
+
 · ✅ Pelo menos 1 admonition (nota, dica, aviso) por página
+
 · ✅ Links internos funcionando
+
 · ✅ Conteúdo tecnicamente correto
 
 ---
