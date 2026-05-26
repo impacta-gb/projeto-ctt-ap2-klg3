@@ -1,514 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Documentação completa da linguagem Go - Guia definitivo com exemplos práticos">
+    <meta name="author" content="Grupo CTT-AP2">
+    <title>🐹 Documentação Go | Guia Completo da Linguagem</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<!doctype html>
-<html lang="pt" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-        <meta name="description" content="Documentação completa da linguagem Go">
-      
-      
-        <meta name="author" content="Grupo CTT-AP2">
-      
-      
-        <link rel="canonical" href="https://SEU_USUARIO.github.io/go-docs-ctt-ap2/">
-      
-      
-      
-        <link rel="next" href="./markdown/">
-      
-      
-        
-      
-      
-      <link rel="icon" href="./assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.40">
-    
-    
-      
-        <title>🐹 Documentação da Linguagem Go - Documentação Go</title>
-      
-    
-    
-      
-        
-      
-      <link rel="stylesheet" href="./assets/stylesheets/modern/main.fba56155.min.css">
-      
-        
-          
-        
-        <link rel="stylesheet" href="./assets/stylesheets/modern/palette.dfe2e883.min.css">
-      
-      
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #1a202c;
+            line-height: 1.6;
+        }
 
+        /* Layout Principal */
+        .app {
+            display: flex;
+            min-height: 100vh;
+        }
 
-    
-    
-      
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
-      
-    
-    
-    <script>__md_scope=new URL(".",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
-    
-      
+        /* Sidebar - Menu Lateral */
+        .sidebar {
+            width: 320px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 2px 0 20px rgba(0,0,0,0.1);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
 
-    
-    
-  </head>
-  
-  
-    
-    
-      
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
-  
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer" aria-label="Navegação"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#documentacao-da-linguagem-go" class="md-skip">
-          Ir para o conteúdo
-        </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
+        .sidebar-header {
+            padding: 2rem 1.5rem;
+            background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+            color: white;
+            text-align: center;
+            border-bottom: 3px solid rgba(255,255,255,0.2);
+        }
 
-<header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
-    <a href="" title="Documentação Go" class="md-header__button md-logo" aria-label="Documentação Go" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+        .sidebar-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
 
-    </a>
-    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegação">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            Documentação Go
-          </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+        .sidebar-header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .nav-menu {
+            padding: 1rem 0;
+        }
+
+        .nav-item {
+            margin: 0.5rem 1rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            transform: translateX(5px);
+        }
+
+        .nav-item a {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1.2rem;
+            color: #2d3748;
+            text-decoration: none;
+            font-weight: 500;
+            gap: 12px;
+        }
+
+        .nav-item.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .nav-item.active a {
+            color: white;
+        }
+
+        .nav-icon {
+            width: 24px;
+            font-size: 1.2rem;
+        }
+
+        /* Botão Menu Mobile */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Conteúdo Principal */
+        .main-content {
+            flex: 1;
+            margin-left: 320px;
+            padding: 2rem;
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header da Página */
+        .page-header {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        /* Cards de Características */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+
+        /* Lista de Conteúdos */
+        .content-list {
+            background: white;
+        }
+
+            border-left: 4px solid #667eea;
+            padding-left: 1rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .content-item {
+            padding: 1rem;
+            background: #f7fafc;
+            border-radius: 12px;
+        .content-list h2 {
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .content-item:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .content-item a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        /* Alerts e Dicas */
+        .alert {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+        }
+
+        .alert-tip {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border-left-color: #10b981;
+        }
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
+        /* Tabelas */
+        .styled-table {
+
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 1.5rem 0;
+        }
+
+        .styled-table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .styled-table tbody tr:hover {
+            background: #f7fafc;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
             
-              🐹 Documentação da Linguagem Go
+            .sidebar.open {
+                transform: translateX(0);
+            }
             
-          </span>
-        </div>
-      </div>
-    </div>
-    
-      
-        <form class="md-header__option" data-md-component="palette">
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_0">
-    
-      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
-      </label>
-    
-  
-</form>
-      
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-    
-    
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search" aria-label="Pesquisar">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog" aria-label="Pesquisar">
-  <button type="button" class="md-search__button">
-    Pesquisar
-  </button>
-</div>
-      
-    
-    <div class="md-header__source">
-      
-    </div>
-  </nav>
-  
-</header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
+            .menu-toggle {
+                display: block;
+            }
             
-<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-    
-  
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="" class="md-tabs__link">
-        
-  
-  🐹 Documentação da Linguagem Go
 
-      </a>
-    </li>
-  
+            .main-content {
+                margin-left: 0;
+                padding: 1rem;
 
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="./markdown/" class="md-tabs__link">
-        
-  
-  Markdown in 5min
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
+            }
             
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
+            .page-header h1 {
+
+                font-size: 1.8rem;
+
+            }
+        }
 
 
-  
+        /* Scrollbar Personalizada */
+        ::-webkit-scrollbar {
+            width: 8px;
 
-
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="" title="Documentação Go" class="md-nav__button md-logo" aria-label="Documentação Go" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
-
-    </a>
-    Documentação Go
-  </label>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      
-      
-      
+        }
         
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  🐹 Documentação da Linguagem Go
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="" class="md-nav__link md-nav__link--active">
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
         
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  🐹 Documentação da Linguagem Go
-
-    
-  </span>
-  
-  
-
-      </a>
-      
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 4px;
+        }
         
-
-
-<nav class="md-nav md-nav--secondary" aria-label="Índice">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Índice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sobre-go" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Sobre Go
-      </span>
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sobre Go">
-      <ul class="md-nav__list">
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin: 0.25rem;
+        }
         
-          <li class="md-nav__item">
-  <a href="#caracteristicas-principais" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Características principais
-      </span>
-    </span>
-  </a>
-  
-</li>
+        .badge-go {
+            background: #00add8;
+            color: white;
+        }
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conteudos" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Conteúdos
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
+        /* Footer */
+        .footer {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: #718096;
+        }
+
+    </style>
+</head>
+
+<body>
+    <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="./markdown/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.27 19.385H1.73A1.73 1.73 0 0 1 0 17.655V6.345a1.73 1.73 0 0 1 1.73-1.73h20.54A1.73 1.73 0 0 1 24 6.345v11.308a1.73 1.73 0 0 1-1.73 1.731zM5.769 15.923v-4.5l2.308 2.885 2.307-2.885v4.5h2.308V8.078h-2.308l-2.307 2.885-2.308-2.885H3.46v7.847zM21.232 12h-2.309V8.077h-2.307V12h-2.308l3.461 4.039z"/></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-  Markdown in 5min
 
-    
-  </span>
-  
-  
+    <div class="app">
 
-      </a>
-    </li>
-  
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-<h1 id="documentacao-da-linguagem-go">🐹 Documentação da Linguagem Go<a class="headerlink" href="#documentacao-da-linguagem-go" title="Permanent link">&para;</a></h1>
-<p>Bem-vindo à documentação completa da linguagem <strong>Go</strong> (Golang).</p>
-<h2 id="sobre-go">Sobre Go<a class="headerlink" href="#sobre-go" title="Permanent link">&para;</a></h2>
-<p>Go é uma linguagem de programação criada pelo Google em 2007 e lançada publicamente em 2009.</p>
-<h3 id="caracteristicas-principais">Características principais<a class="headerlink" href="#caracteristicas-principais" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Característica</th>
-<th>Descrição</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>~<strong>Rápida</strong></td>
-<td>Compila para código nativo</td>
-</tr>
-<tr>
-<td>~<strong>Limpa</strong></td>
-<td>Sintaxe minimalista</td>
-</tr>
-<tr>
-<td>🔒 <strong>Segura</strong></td>
-<td>Tipagem estática</td>
-</tr>
-<tr>
-<td>🔄 <strong>Concorrente</strong></td>
-<td>Goroutines e channels</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition tip">
-<p class="admonition-title">Dica</p>
-<p>Todo código apresentado pode ser testado no <a href="https://go.dev/play/">Go Playground</a></p>
-</div>
-<h2 id="conteudos">Conteúdos<a class="headerlink" href="#conteudos" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Introdução e Instalação</li>
-<li>Sintaxe Básica e Variáveis</li>
-<li>Estruturas de Controle</li>
-<li>Arrays, Slices e Maps</li>
-<li>Structs e Métodos</li>
-<li>Tratamento de Erros</li>
-<li>Concorrência I: Goroutines</li>
-<li>Concorrência II: Channels</li>
-<li>Gerenciamento de Pacotes (Go Modules)</li>
-<li>Testes Automatizados em Go</li>
-</ol>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                
-              </article>
+        <!-- Sidebar com Navegação -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1>🐹 Go Lang</h1>
+                <p>Documentação Oficial</p>
             </div>
-          
-          
-<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+            
+            <nav class="nav-menu">
+                <div class="nav-item active">
+                    <a href="#home">
+                        <span class="nav-icon">🏠</span>
+                        <span>Início</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#introducao">
+                        <span class="nav-icon">📖</span>
+                        <span>1. Introdução</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#sintaxe">
+                        <span class="nav-icon">💻</span>
+                        <span>2. Sintaxe Básica</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#controle">
+                        <span class="nav-icon">🔄</span>
+                        <span>3. Estruturas de Controle</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#arrays">
+                        <span class="nav-icon">📊</span>
+                        <span>4. Arrays, Slices e Maps</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#structs">
+                        <span class="nav-icon">🏗️</span>
+                        <span>5. Structs e Métodos</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#erros">
+                        <span class="nav-icon">⚠️</span>
+                        <span>6. Tratamento de Erros</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#concorrencia1">
+                        <span class="nav-icon">⚡</span>
+                        <span>7. Concorrência I</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#concorrencia2">
+                        <span class="nav-icon">📡</span>
+                        <span>8. Concorrência II</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#modulos">
+                        <span class="nav-icon">📦</span>
+                        <span>9. Go Modules</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#testes">
+                        <span class="nav-icon">🧪</span>
+                        <span>10. Testes Automatizados</span>
+                    </a>
+                </div>
+            </nav>
         </div>
         
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
-  Voltar ao topo
-</button>
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Header -->
+                <div class="page-header">
+                    <h1>🐹 Documentação da Linguagem Go</h1>
+                    <p>Bem-vindo à documentação completa e interativa da linguagem Go (Golang).</p>
+                    <div>
+                        <span class="badge badge-go">Go 1.24+</span>
+                        <span class="badge" style="background:#28a745;color:white;">Open Source</span>
+                        <span class="badge" style="background:#6f42c1;color:white;">Concorrente</span>
+                    </div>
+                </div>
+                
+                <!-- Cards de Características -->
+                <div class="features-grid">
+                    <div class="feature-card" onclick="scrollToSection('caracteristicas')">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Rápida</h3>
+                        <p>Compila para código nativo, performance de linguagens compiladas</p>
+                    </div>
+                    <div class="feature-card" onclick="scrollToSection('caracteristicas')">
+                        <div class="feature-icon">✨</div>
+                        <h3>Limpa</h3>
+                        <p>Sintaxe minimalista e fácil de aprender</p>
+                    </div>
+                    <div class="feature-card" onclick="scrollToSection('caracteristicas')">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Segura</h3>
+                        <p>Tipagem estática e gerenciamento de memória automático</p>
+                    </div>
+                    <div class="feature-card" onclick="scrollToSection('caracteristicas')">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Concorrente</h3>
+                        <p>Goroutines leves e channels para comunicação</p>
+                    </div>
+                </div>
+                
+                <!-- Tabela de Características -->
+                <div id="caracteristicas">
+                    <div class="content-list">
+                        <h2>⭐ Características Principais</h2>
+                        <table class="styled-table">
+                            <thead>
+                                <tr>
+                                    <th>Característica</th>
+                                    <th>Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>🚀 <strong>Rápida</strong></td><td>Compila para código nativo, sem interpretação</td></tr>
+                                <tr><td>🧹 <strong>Limpa</strong></td><td>Sintaxe minimalista e legível</td></tr>
+                                <tr><td>🔐 <strong>Segura</strong></td><td>Tipagem estática e garbage collection</td></tr>
+                                <tr><td>🔄 <strong>Concorrente</strong></td><td>Goroutines e channels nativos</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Dica -->
+                <div class="alert alert-tip">
+                    💡 <strong>Dica:</strong> Todo código apresentado pode ser testado no 
+                    <a href="https://go.dev/play/" target="_blank" style="color:#667eea;">Go Playground</a>
+                </div>
+                
+                <!-- Lista de Conteúdos Interativa -->
+                <div class="content-list">
+                    <h2>📚 Conteúdos do Curso</h2>
+                    <div class="content-grid">
+                        <div class="content-item" onclick="alert('Conteúdo 1: Introdução à linguagem Go')">
+                            <strong>01.</strong> Introdução e Instalação
+                        </div>
+                        <div class="content-item" onclick="alert('Conteúdo 2: Sintaxe básica, variáveis e tipos')">
+                            <strong>02.</strong> Sintaxe Básica e Variáveis
+                        </div>
+                        <div class="content-item" onclick="alert('Conteúdo 3: Condicionais e loops')">
+                            <strong>03.</strong> Estruturas de Controle
+                        </div>
+                        <div class="content-item" onclick="alert('Conteúdo 4: Trabalhando com coleções')">
+                            <strong>04.</strong> Arrays, Slices e Maps
+                        </div>
+                        <div class="content-item" onclick="alert('Conteúdo 5: Orientação a objetos em Go')">
+                            <strong>05.</strong> Structs e Métodos
+                        </div>
+                        <div class="content-item" onclick="alert('Conteúdo 6: Tratamento de erros idiomatico')">
+                            <strong>06.</strong> Tratamento de Erros
+                        </div>
+                        <div class="content-item" onclick="alert('Conteúdo 7: Concorrência com goroutines')">
+                            <strong>07.</strong> Concorrência I: Goroutines
+                        </div>
+                        <div class="content-item" onclick="alert('Conteúdo 8: Comunicação entre goroutines')">
+                            <strong>08.</strong> Concorrência II: Channels
+                        </div>
+                        <div class="content-item" onclick="alert('Conteúdo 9: Gerenciamento de dependências')">
+                            <strong>09.</strong> Gerenciamento de Pacotes (Go Modules)
+                        </div>
+                        <div class="content-item" onclick="alert('Conteúdo 10: Escrevendo testes eficientes')">
+                            <strong>10.</strong> Testes Automatizados em Go
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Código de Exemplo -->
+                <div class="content-list">
+                    <h2>💻 Exemplo Rápido</h2>
+                    <pre style="background: #2d3748; color: #e2e8f0; padding: 1rem; border-radius: 12px; overflow-x: auto;">
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("🐹 Olá, Go!")
+    
+    // Goroutine exemplo
+    go func() {
+        fmt.Println("Executando concorrentemente")
+    }()
+}</pre>
+                </div>
+                
+                <!-- Footer -->
+                <div class="footer">
+                    <p>📚 Documentação desenvolvida pelo <strong>Grupo CTT-AP2</strong></p>
+                    <p>🎨 Design moderno e responsivo para melhor experiência de aprendizado</p>
+                    <p>🐹 Go Lang - Simples, Rápido e Poderoso</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        // Função para toggle do menu mobile
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
         
-      </main>
-      
-        <footer class="md-footer">
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://zensical.org/" target="_blank" rel="noopener">
-      Zensical
-    </a>
-  
-</div>
-      
-    </div>
-  </div>
-</footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    
-    
-      
-      
-      <script id="__config" type="application/json">{"annotate":null,"base":".","features":["navigation.tabs","navigation.sections","navigation.top","toc.integrate","search.suggest","search.highlight"],"search":"./assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copiado para área de transferência","clipboard.copy":"Copiar para área de transferência","search.result.more.one":"Mais 1 nesta página","search.result.more.other":"Mais # nesta página","search.result.none":"Nenhum resultado encontrado","search.result.one":"1 resultado encontrado","search.result.other":"# resultados encontrados","search.result.placeholder":"Digite para iniciar a busca","search.result.term.missing":"Ausente","select.version":"Selecione a versão"},"version":null}</script>
-    
-    
-      <script src="./assets/javascripts/bundle.dbc0afdc.min.js"></script>
-      
-    
-  </body>
+        // Fechar menu ao clicar em link no mobile
+        document.querySelectorAll('.nav-item a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    document.getElementById('sidebar').classList.remove('open');
+                }
+            });
+        });
+        
+        // Scroll suave
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Detectar seção ativa no scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('[id]');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            // Atualizar menu ativo
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+                const link = item.querySelector('a');
+                if (link && link.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
 </html>
