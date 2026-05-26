@@ -6,16 +6,26 @@ site_author = "Grupo CTT-AP2"
 [theme]
 name = "material"
 language = "pt"
-features = ["navigation.tabs", "navigation.sections", "navigation.top", "toc.integrate", "search.suggest", "search.highlight"]
+features = [
+    "navigation.tabs",
+    "navigation.sections",
+    "navigation.top",
+    "toc.integrate",
+    "search.suggest",
+    "search.highlight"
+]
 
-[theme.palette]
+[[theme.palette]]
+scheme = "slate"
+primary = "blue"
+accent = "light blue"
+toggle = { icon = "material/weather-sunny", name = "Modo claro" }
+
+[[theme.palette]]
 scheme = "default"
 primary = "blue"
 accent = "light blue"
-
-[theme.palette.toggle]
-icon = "material/brightness-7"
-name = "Modo claro"
+toggle = { icon = "material/weather-night", name = "Modo escuro" }
 
 markdown_extensions = [
     { pymdownx.highlight = { anchor_linenums = true } },
