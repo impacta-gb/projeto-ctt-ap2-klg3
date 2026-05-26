@@ -1,5 +1,5 @@
 site_name = "Documentação Go"
-site_url = "https://SEU_USUARIO.github.io/go-docs-ctt-ap2"
+site_url = "https://github.com/impacta-gb/projeto-ctt-ap2-klg3.git"
 site_description = "Documentação completa da linguagem Go"
 site_author = "Grupo CTT-AP2"
 
@@ -7,11 +7,7 @@ site_author = "Grupo CTT-AP2"
 name = "material"
 language = "pt"
 features = [
-    "navigation.tabs",
-    "navigation.sections",
-    "navigation.top",
-    "toc.integrate",
-    "search.suggest",
+    "navigation.expand",      
     "search.highlight"
 ]
 
@@ -36,7 +32,6 @@ markdown_extensions = [
     "attr_list",
     "md_in_html"
 ]
-
 nav = [
     { "Início" = "index.md" },
     { "Fundamentos" = [
@@ -56,6 +51,3 @@ nav = [
     { "Gerenciamento de Pacotes (Go Modules)" = "gerenciamento-pacotes.md" },
     { "Testes Automatizados em Go" = "testes-automatizados.md" }
 ]
-
-
-
