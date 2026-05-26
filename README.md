@@ -234,6 +234,6 @@ Este projeto é acadêmico e foi desenvolvido para fins educacionais na discipli
 
 ---
 
-Desenvolvido com 💙 por Guilherme, Gabriel, Kássia e Lucca
+Desenvolvido com 💙 por Guilherme, Gabriel, Kassia e Lucca
 
 ---
