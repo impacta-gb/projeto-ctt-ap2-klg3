@@ -8,7 +8,7 @@ Projeto acadêmino desenvolvido para a disciplina Collaboration Tools for Teams 
 
 🌐 Site Publicado
 
-🔗https://github.com/impacta-gb/projeto-ctt-ap2-klg3.git
+🔗https://impacta-gb.github.io/projeto-ctt-ap2-klg3/
 
 ---
 
