@@ -1,10 +1,4 @@
-# Sintaxe Básica e Variáveis em Go
-
-> Guia completo sobre estrutura básica, variáveis, tipos primitivos, constantes e boas práticas na linguagem Go.
-
----
-
-# 📘 2. Sintaxe Básica e Variáveis
+# 2. Sintaxe Básica e Variáveis
 
 ## 📌 Estrutura Básica de um Programa Go
 
