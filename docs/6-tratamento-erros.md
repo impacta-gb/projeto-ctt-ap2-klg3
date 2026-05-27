@@ -1,6 +1,6 @@
 # 6. Tratamento de Erros
 
-Erros acontecem em qualquer sistema.
+## Erros acontecem em qualquer sistema
 
 Exemplos:
 
@@ -15,7 +15,7 @@ Toda linguagem precisa possuir uma forma de lidar com erros.
 
 ---
 
-# 🧠 Como Go trata erros?
+## Como Go trata erros?
 
 Diferente de linguagens como:
 
@@ -34,7 +34,7 @@ finally
 
 ---
 
-# 📌 Go utiliza retorno de erros
+## Go utiliza retorno de erros
 
 Em Go:
 
@@ -42,7 +42,7 @@ Em Go:
 
 ---
 
-# 📌 Filosofia do Go
+## Filosofia do Go
 
 Os criadores da linguagem acreditam que:
 
@@ -53,9 +53,9 @@ Os criadores da linguagem acreditam que:
 
 ---
 
-# 🔥 Comparação com outras linguagens
+## Comparação com outras linguagens
 
-## ❌ JavaScript
+### JavaScript
 
 ```javascript
 try {
@@ -65,9 +65,7 @@ try {
 }
 ```
 
----
-
-## ✅ Go
+### Go
 
 ```go
 resultado, err := funcao()
@@ -79,13 +77,13 @@ if err != nil {
 
 ---
 
-# 📌 Interface `error`
+## Interface `error`
 
 Go possui uma interface chamada `error`.
 
 ---
 
-# ✅ Definição simplificada
+## Definição simplificada
 
 ```go
 type error interface {
@@ -95,7 +93,7 @@ type error interface {
 
 ---
 
-# 🔍 O que isso significa?
+## O que isso significa?
 
 Qualquer valor que implemente:
 
@@ -107,7 +105,7 @@ pode ser tratado como erro.
 
 ---
 
-# 📌 Estrutura do retorno
+## Estrutura do retorno
 
 Funções normalmente retornam:
 
@@ -117,7 +115,7 @@ Funções normalmente retornam:
 
 ---
 
-# 📌 Exemplo do arquivo
+## Exemplo do arquivo
 
 ```go
 func dividir(a, b int) (int, error) {
@@ -131,11 +129,9 @@ func dividir(a, b int) (int, error) {
 
 ---
 
-# 🔍 Explicação Completa
+# Explicação Completa
 
----
-
-# 📌 Assinatura da função
+## Assinatura da função
 
 ```go
 func dividir(a, b int) (int, error)
@@ -143,7 +139,7 @@ func dividir(a, b int) (int, error)
 
 ---
 
-# 🔍 Significado
+## Significado
 
 | Parte | Função |
 |---|---|
@@ -154,7 +150,7 @@ func dividir(a, b int) (int, error)
 
 ---
 
-# 📌 O que a função retorna?
+## O que a função retorna?
 
 | Retorno | Significado |
 |---|---|
@@ -163,7 +159,7 @@ func dividir(a, b int) (int, error)
 
 ---
 
-# 📌 Verificando divisão por zero
+## Verificando divisão por zero
 
 ```go
 if b == 0 {
@@ -171,7 +167,7 @@ if b == 0 {
 
 ---
 
-# 🔍 Explicação
+## Explicação
 
 Antes de dividir:
 
@@ -180,7 +176,7 @@ Antes de dividir:
 
 ---
 
-# 📌 Criando erro
+## Criando erro
 
 ```go
 errors.New("divisão por zero")
@@ -188,13 +184,13 @@ errors.New("divisão por zero")
 
 ---
 
-# 🔍 O que isso faz?
+## O que isso faz?
 
 Cria um erro com mensagem personalizada.
 
 ---
 
-# 📌 Retornando erro
+## Retornando erro
 
 ```go
 return 0, errors.New("divisão por zero")
@@ -202,7 +198,7 @@ return 0, errors.New("divisão por zero")
 
 ---
 
-# 🔍 Significado
+## Significado
 
 | Valor | Motivo |
 |---|---|
@@ -211,7 +207,7 @@ return 0, errors.New("divisão por zero")
 
 ---
 
-# 📌 Retorno de sucesso
+## Retorno de sucesso
 
 ```go
 return a / b, nil
@@ -219,7 +215,7 @@ return a / b, nil
 
 ---
 
-# 🔍 Explicação
+## Explicação
 
 | Valor | Significado |
 |---|---|
@@ -228,7 +224,7 @@ return a / b, nil
 
 ---
 
-# 📌 O que é `nil`?
+## O que é `nil`?
 
 `nil` representa ausência de valor.
 
@@ -242,11 +238,9 @@ Muito usado com:
 
 ---
 
-# 🚀 Verificando Erros
+# Verificando Erros
 
----
-
-# ✅ Exemplo do arquivo
+## Exemplo do arquivo
 
 ```go
 resultado, err := dividir(10, 0)
@@ -258,11 +252,9 @@ if err != nil {
 
 ---
 
-# 🔍 Explicação Completa
+# Explicação Completa
 
----
-
-# 📌 Chamando função
+## Chamando função
 
 ```go
 resultado, err := dividir(10, 0)
@@ -270,7 +262,7 @@ resultado, err := dividir(10, 0)
 
 ---
 
-# 🔍 O que acontece?
+## O que acontece?
 
 A função tenta:
 
@@ -280,7 +272,7 @@ A função tenta:
 
 ---
 
-# 📌 Resultado retornado
+## Resultado retornado
 
 ```go
 0, error
@@ -288,13 +280,13 @@ A função tenta:
 
 ---
 
-# 📌 Variável `err`
+## Variável `err`
 
 Recebe o erro retornado pela função.
 
 ---
 
-# 📌 Verificação padrão do Go
+## Verificação padrão do Go
 
 ```go
 if err != nil
@@ -302,7 +294,7 @@ if err != nil
 
 ---
 
-# 🔍 Significado
+## Significado
 
 | Situação | Resultado |
 |---|---|
@@ -311,7 +303,7 @@ if err != nil
 
 ---
 
-# 📌 Imprimindo erro
+## Imprimindo erro
 
 ```go
 fmt.Println(err)
@@ -319,7 +311,7 @@ fmt.Println(err)
 
 ---
 
-# 🔍 Saída
+## Saída
 
 ```txt
 divisão por zero
@@ -327,7 +319,7 @@ divisão por zero
 
 ---
 
-# ⚠️ IMPORTANTE
+## IMPORTANTE
 
 Essa é uma das estruturas MAIS utilizadas em Go.
 
@@ -341,11 +333,9 @@ if err != nil {
 
 ---
 
-# 📌 Fluxo Completo do Programa
+# Fluxo Completo do Programa
 
----
-
-# 🔍 Fluxo visual
+## Fluxo visual
 
 ```txt
 Usuário chama dividir()
@@ -367,7 +357,7 @@ Se falso:
 
 ---
 
-# 🚀 Exemplo Completo
+## Exemplo Completo
 
 ```go
 package main
@@ -401,7 +391,7 @@ func main() {
 
 ---
 
-# 🔍 Saída
+## Saída
 
 ```txt
 Erro: divisão por zero
@@ -409,7 +399,7 @@ Erro: divisão por zero
 
 ---
 
-# 📌 Exemplo sem erro
+## Exemplo sem erro
 
 ```go
 resultado, err := dividir(10, 2)
@@ -417,7 +407,7 @@ resultado, err := dividir(10, 2)
 
 ---
 
-# 🔍 Resultado
+## Resultado
 
 ```txt
 Resultado: 5
@@ -425,9 +415,9 @@ Resultado: 5
 
 ---
 
-# 📌 Por que Go usa esse modelo?
+## Por que Go usa esse modelo?
 
-## ✅ Vantagens
+### Vantagens
 
 | Vantagem | Explicação |
 |---|---|
@@ -438,7 +428,7 @@ Resultado: 5
 
 ---
 
-# 🚀 Ignorando retornos
+## Ignorando retornos
 
 Às vezes queremos ignorar um retorno.
 
@@ -446,7 +436,7 @@ Usamos `_`.
 
 ---
 
-# ✅ Exemplo
+## Exemplo
 
 ```go
 resultado, _ := dividir(10, 2)
@@ -454,23 +444,21 @@ resultado, _ := dividir(10, 2)
 
 ---
 
-# ⚠️ Atenção
+## Atenção
 
 Ignorar erros NÃO é recomendado.
 
 ---
 
-# ❌ Problema
+## ❌ Problema
 
 Você pode esconder falhas importantes.
 
 ---
 
-# 🚀 Criando Erros Personalizados
+# Criando Erros Personalizados
 
----
-
-# ✅ Exemplo
+## Exemplo
 
 ```go
 func sacar(saldo, valor float64) error {
@@ -485,7 +473,7 @@ func sacar(saldo, valor float64) error {
 
 ---
 
-# 🔍 Uso
+## Uso
 
 ```go
 err := sacar(100, 200)
@@ -497,7 +485,7 @@ if err != nil {
 
 ---
 
-# 🔍 Saída
+## Saída
 
 ```txt
 saldo insuficiente
@@ -505,13 +493,13 @@ saldo insuficiente
 
 ---
 
-# 🚀 Pacote `errors`
+## Pacote `errors`
 
 O pacote `errors` fornece ferramentas para criação de erros.
 
 ---
 
-# ✅ Importação
+## Importação
 
 ```go
 import "errors"
@@ -519,13 +507,13 @@ import "errors"
 
 ---
 
-# 📌 Função `errors.New()`
+## Função `errors.New()`
 
 Cria erro simples.
 
 ---
 
-# ✅ Exemplo
+## Exemplo
 
 ```go
 errors.New("erro personalizado")
@@ -533,13 +521,13 @@ errors.New("erro personalizado")
 
 ---
 
-# 🚀 Pacote `fmt` com erros
+## Pacote `fmt` com erros
 
 Também podemos criar erros formatados.
 
 ---
 
-# ✅ Exemplo
+## Exemplo
 
 ```go
 fmt.Errorf("idade inválida: %d", idade)
@@ -547,7 +535,7 @@ fmt.Errorf("idade inválida: %d", idade)
 
 ---
 
-# 🔍 Saída
+## Saída
 
 ```txt
 idade inválida: -10
@@ -555,11 +543,9 @@ idade inválida: -10
 
 ---
 
-# 🚀 Tratando erros de arquivos
+# Tratando erros de arquivos
 
----
-
-# ✅ Exemplo
+## Exemplo
 
 ```go
 arquivo, err := os.Open("dados.txt")
@@ -572,7 +558,7 @@ if err != nil {
 
 ---
 
-# 🔍 Possíveis erros
+## Possíveis erros
 
 - Arquivo não existe
 - Permissão negada
@@ -580,11 +566,9 @@ if err != nil {
 
 ---
 
-# 🚀 Tratando entrada do usuário
+# Tratando entrada do usuário
 
----
-
-# ✅ Exemplo
+## Exemplo
 
 ```go
 var idade int
@@ -598,7 +582,7 @@ if err != nil {
 
 ---
 
-# 📌 Erros em APIs
+# Erros em APIs
 
 Erros são MUITO utilizados em:
 
@@ -609,7 +593,7 @@ Erros são MUITO utilizados em:
 
 ---
 
-# 🚀 Exemplo HTTP
+## Exemplo HTTP
 
 ```go
 resp, err := http.Get("https://google.com")
@@ -622,11 +606,9 @@ if err != nil {
 
 ---
 
-# 🚀 Padrão mais comum do Go
+# Padrão mais comum do Go
 
----
-
-# ✅ Estrutura padrão
+## Estrutura padrão
 
 ```go
 if err != nil {
@@ -636,7 +618,7 @@ if err != nil {
 
 ---
 
-# 🔍 Significado
+## Significado
 
 Se existir erro:
 
@@ -645,7 +627,7 @@ Se existir erro:
 
 ---
 
-# 📌 Isso reduz complexidade
+## Isso reduz complexidade
 
 Evita:
 
@@ -655,13 +637,13 @@ Evita:
 
 ---
 
-# 🚀 Múltiplos retornos
+# Múltiplos retornos
 
 Go permite múltiplos retornos.
 
 ---
 
-# ✅ Exemplo
+## Exemplo
 
 ```go
 func calcular() (int, string, error) {
@@ -671,7 +653,7 @@ func calcular() (int, string, error) {
 
 ---
 
-# 📌 Recebendo valores
+## Recebendo valores
 
 ```go
 numero, status, err := calcular()
@@ -679,19 +661,19 @@ numero, status, err := calcular()
 
 ---
 
-# 🚀 Panic
+# Panic
 
 Go possui `panic`.
 
 ---
 
-# ⚠️ MAS:
+## MAS:
 
 Panic NÃO é usado para erros comuns.
 
 ---
 
-# 📌 Panic serve para:
+## Panic serve para:
 
 - Erros críticos
 - Situações irreversíveis
@@ -699,7 +681,7 @@ Panic NÃO é usado para erros comuns.
 
 ---
 
-# ❌ Exemplo ruim
+## Exemplo ruim
 
 ```go
 panic("erro simples")
@@ -707,17 +689,17 @@ panic("erro simples")
 
 ---
 
-# ✅ Use panic apenas em casos extremos
+## Use panic apenas em casos extremos
 
 ---
 
-# 🚀 Recover
+# Recover
 
 Go possui `recover()` para capturar panic.
 
 ---
 
-# ⚠️ Pouco utilizado no dia a dia
+## Pouco utilizado no dia a dia
 
 Muito usado em:
 
@@ -727,7 +709,7 @@ Muito usado em:
 
 ---
 
-# 🚀 Exemplo simples com panic
+## Exemplo simples com panic
 
 ```go
 func main() {
@@ -737,7 +719,7 @@ func main() {
 
 ---
 
-# 🔍 Saída
+## Saída
 
 ```txt
 panic: algo deu errado
@@ -745,7 +727,7 @@ panic: algo deu errado
 
 ---
 
-# 🚀 Exemplo Completo Profissional
+# Exemplo Completo Profissional
 
 ```go
 package main
@@ -780,7 +762,7 @@ func main() {
 
 ---
 
-# 🔍 Saída
+## Saída
 
 ```txt
 Erro encontrado:
@@ -789,9 +771,9 @@ não é possível dividir por zero
 
 ---
 
-# 📌 Fluxo Real em Aplicações
+# Fluxo Real em Aplicações
 
-Em sistemas reais:
+## Fluxo em sistemas reais
 
 ```txt
 Usuário envia dado
@@ -815,7 +797,7 @@ Sistema responde adequadamente
 
 ---
 
-# ✅ Boas Práticas
+# Boas Práticas
 
 | Prática | Motivo |
 |---|---|
@@ -827,11 +809,9 @@ Sistema responde adequadamente
 
 ---
 
-# ❌ Más práticas
+# Más práticas
 
----
-
-# ❌ Ignorar erros
+## ❌ Ignorar erros
 
 ```go
 resultado, _ := dividir(10, 0)
@@ -839,7 +819,7 @@ resultado, _ := dividir(10, 0)
 
 ---
 
-# ❌ Panic para erros simples
+## ❌ Panic para erros simples
 
 ```go
 panic("arquivo não encontrado")
@@ -847,7 +827,7 @@ panic("arquivo não encontrado")
 
 ---
 
-# ❌ Mensagens genéricas
+## ❌ Mensagens genéricas
 
 ```go
 errors.New("erro")
@@ -855,7 +835,7 @@ errors.New("erro")
 
 ---
 
-# ✅ Prefira
+## Prefira
 
 ```go
 errors.New("usuário não encontrado")
@@ -863,7 +843,7 @@ errors.New("usuário não encontrado")
 
 ---
 
-# 💡 Dica 
+# 💡 Dica
 
 > O tratamento de erros é uma das características mais importantes da linguagem Go.
 >
@@ -877,4 +857,3 @@ errors.New("usuário não encontrado")
 > Dominar tratamento de erros é essencial para desenvolver aplicações profissionais em Go.
 
 ---
-
