@@ -19,7 +19,7 @@ Para organizar esses dados, Go utiliza:
 
 ---
 
-# 🧠 O que é uma Struct?
+# O que é uma Struct?
 
 Uma `struct` é uma estrutura que agrupa múltiplos dados relacionados em um único tipo.
 
@@ -56,7 +56,7 @@ Podemos agrupar tudo em uma `struct`.
 
 ---
 
-# ✅ Exemplo Básico
+# Exemplo Básico
 
 ```go
 type Pessoa struct {
@@ -67,7 +67,7 @@ type Pessoa struct {
 
 ---
 
-# 🔍 Explicação Detalhada
+# Explicação Detalhada
 
 | Parte | Função |
 |---|---|
@@ -81,13 +81,13 @@ type Pessoa struct {
 
 ---
 
-# 📌 O que o Go cria internamente?
+# O que o Go cria internamente?
 
 A struct funciona como um molde.
 
 ---
 
-# 🔍 Representação visual
+# Representação visual
 
 ```txt
 Pessoa
@@ -97,7 +97,7 @@ Pessoa
 
 ---
 
-# 📌 Structs agrupam dados relacionados
+# Structs agrupam dados relacionados
 
 A ideia principal é:
 
@@ -105,7 +105,7 @@ A ideia principal é:
 
 ---
 
-# 🚀 Criando Objetos (Instâncias)
+# Criando Objetos (Instâncias)
 
 Depois de criar a struct, podemos criar variáveis baseadas nela.
 
@@ -116,7 +116,7 @@ Essas variáveis são chamadas de:
 
 ---
 
-# ✅ Exemplo
+# Exemplo
 
 ```go
 p := Pessoa{
@@ -127,7 +127,7 @@ p := Pessoa{
 
 ---
 
-# 🔍 Explicação
+# Explicação
 
 | Parte | Função |
 |---|---|
@@ -140,7 +140,7 @@ p := Pessoa{
 
 ---
 
-# 📌 O que foi criado?
+# O que foi criado?
 
 ```txt
 Pessoa
@@ -150,13 +150,13 @@ Pessoa
 
 ---
 
-# 📌 Acessando Campos
+# Acessando Campos
 
 Usamos o operador `.`
 
 ---
 
-# ✅ Exemplo
+# Exemplo
 
 ```go
 fmt.Println(p.Nome)
@@ -165,7 +165,7 @@ fmt.Println(p.Idade)
 
 ---
 
-# 🔍 Saída
+# Saída
 
 ```txt
 Kassia
@@ -174,13 +174,13 @@ Kassia
 
 ---
 
-# 📌 Alterando Valores
+# Alterando Valores
 
 Campos podem ser modificados.
 
 ---
 
-# ✅ Exemplo
+# Exemplo
 
 ```go
 p.Idade = 25
@@ -188,7 +188,7 @@ p.Idade = 25
 
 ---
 
-# 🔍 Resultado
+# Resultado
 
 ```txt
 Idade -> 25
@@ -196,13 +196,13 @@ Idade -> 25
 
 ---
 
-# 📌 Inicialização Posicional
+# Inicialização Posicional
 
 Também é possível criar structs sem nomear os campos.
 
 ---
 
-# ✅ Exemplo
+# Exemplo
 
 ```go
 p := Pessoa{"Kassia", 20}
@@ -210,7 +210,7 @@ p := Pessoa{"Kassia", 20}
 
 ---
 
-# ⚠️ Problema dessa abordagem
+# Problema dessa abordagem
 
 Pode gerar confusão:
 
@@ -226,13 +226,13 @@ O que é `20`?
 
 ---
 
-# ✅ Boa prática
+# Boa prática
 
 Prefira inicialização nomeada.
 
 ---
 
-# ✔️ Recomendado
+# Recomendado
 
 ```go
 Pessoa{
@@ -243,13 +243,13 @@ Pessoa{
 
 ---
 
-# 📌 Valores Zero em Structs
+# Valores Zero em Structs
 
 Se um campo não for preenchido, Go utiliza o valor zero.
 
 ---
 
-# ✅ Exemplo
+# Exemplo
 
 ```go
 p := Pessoa{}
@@ -257,7 +257,7 @@ p := Pessoa{}
 
 ---
 
-# 🔍 Resultado
+# Resultado
 
 | Campo | Valor |
 |---|---|
@@ -266,13 +266,13 @@ p := Pessoa{}
 
 ---
 
-# 📌 Structs Aninhadas
+# Structs Aninhadas
 
 Uma struct pode conter outra struct.
 
 ---
 
-# ✅ Exemplo
+# Exemplo
 
 ```go
 type Endereco struct {
@@ -288,7 +288,7 @@ type Pessoa struct {
 
 ---
 
-# 🔍 Estrutura criada
+# Estrutura criada
 
 ```txt
 Pessoa
@@ -300,7 +300,7 @@ Pessoa
 
 ---
 
-# ✅ Criando objeto
+# Criando objeto
 
 ```go
 p := Pessoa{
@@ -314,11 +314,11 @@ p := Pessoa{
 
 ---
 
-# 📌 Acessando dados aninhados
+# Acessando dados aninhados
 
 ---
 
-# ✅ Exemplo
+# Exemplo
 
 ```go
 fmt.Println(p.Endereco.Cidade)
@@ -326,7 +326,7 @@ fmt.Println(p.Endereco.Cidade)
 
 ---
 
-# 🔍 Saída
+# Saída
 
 ```txt
 São Paulo
@@ -334,7 +334,7 @@ São Paulo
 
 ---
 
-# 🚀 Métodos em Go
+# Métodos em Go
 
 Métodos são funções associadas a uma struct.
 
@@ -342,7 +342,7 @@ Eles representam comportamentos da estrutura.
 
 ---
 
-# 📌 Exemplo do mundo real
+# Exemplo do mundo real
 
 Uma pessoa pode:
 
@@ -355,7 +355,7 @@ Essas ações podem virar métodos.
 
 ---
 
-# ✅ Exemplo do arquivo
+# Exemplo do arquivo
 
 ```go
 func (p Pessoa) Apresentar() {
@@ -365,7 +365,7 @@ func (p Pessoa) Apresentar() {
 
 ---
 
-# 🔍 Explicação Detalhada
+# Explicação Detalhada
 
 | Parte | Função |
 |---|---|
@@ -376,13 +376,13 @@ func (p Pessoa) Apresentar() {
 
 ---
 
-# 📌 O que é Receiver?
+# O que é Receiver?
 
 O receiver conecta o método à struct.
 
 ---
 
-# 🔍 Exemplo
+# Exemplo
 
 ```go
 (p Pessoa)
@@ -394,7 +394,7 @@ Significa:
 
 ---
 
-# 📌 Receiver funciona parecido com `this`
+# Receiver funciona parecido com `this`
 
 Em outras linguagens:
 
@@ -407,11 +407,11 @@ Em outras linguagens:
 
 ---
 
-# 📌 Chamando Métodos
+# Chamando Métodos
 
 ---
 
-# ✅ Exemplo
+# Exemplo
 
 ```go
 p.Apresentar()
@@ -419,7 +419,7 @@ p.Apresentar()
 
 ---
 
-# 🔍 Saída
+# Saída
 
 ```txt
 Olá, Kassia
@@ -427,7 +427,7 @@ Olá, Kassia
 
 ---
 
-# 📌 O que acontece internamente?
+# O que acontece internamente?
 
 O Go transforma:
 
@@ -443,13 +443,13 @@ Apresentar(p)
 
 ---
 
-# 🚀 Métodos com Retorno
+# Métodos com Retorno
 
 Métodos podem retornar valores.
 
 ---
 
-# ✅ Exemplo
+# Exemplo
 
 ```go
 func (p Pessoa) Saudacao() string {
@@ -459,7 +459,7 @@ func (p Pessoa) Saudacao() string {
 
 ---
 
-# ✅ Utilizando
+# Utilizando
 
 ```go
 mensagem := p.Saudacao()
@@ -469,7 +469,7 @@ fmt.Println(mensagem)
 
 ---
 
-# 🔍 Saída
+# Saída
 
 ```txt
 Olá Kassia
@@ -477,7 +477,7 @@ Olá Kassia
 
 ---
 
-# 🚀 Métodos com Ponteiros
+# Métodos com Ponteiros
 
 Métodos podem alterar os dados da struct.
 
@@ -485,7 +485,7 @@ Para isso usamos ponteiros.
 
 ---
 
-# ✅ Exemplo
+# Exemplo
 
 ```go
 func (p *Pessoa) FazerAniversario() {
@@ -495,7 +495,7 @@ func (p *Pessoa) FazerAniversario() {
 
 ---
 
-# 📌 Explicação
+# Explicação
 
 | Parte | Função |
 |---|---|
@@ -504,7 +504,7 @@ func (p *Pessoa) FazerAniversario() {
 
 ---
 
-# 📌 Sem ponteiro não altera original
+# Sem ponteiro não altera original
 
 ---
 
@@ -518,7 +518,7 @@ func (p Pessoa) FazerAniversario() {
 
 ---
 
-# 🔍 Problema
+# Problema
 
 Nesse caso:
 
@@ -537,7 +537,7 @@ func (p *Pessoa) FazerAniversario() {
 
 ---
 
-# 📌 Utilizando
+# Utilizando
 
 ```go
 p.FazerAniversario()
@@ -545,7 +545,7 @@ p.FazerAniversario()
 
 ---
 
-# 🔍 Resultado
+# Resultado
 
 ```txt
 Idade aumentada
@@ -553,11 +553,11 @@ Idade aumentada
 
 ---
 
-# 📌 Métodos podem receber parâmetros
+# Métodos podem receber parâmetros
 
 ---
 
-# ✅ Exemplo
+# Exemplo
 
 ```go
 func (p Pessoa) Cumprimentar(nome string) {
@@ -567,7 +567,7 @@ func (p Pessoa) Cumprimentar(nome string) {
 
 ---
 
-# ✅ Chamando
+# Chamando
 
 ```go
 p.Cumprimentar("Carlos")
@@ -575,7 +575,7 @@ p.Cumprimentar("Carlos")
 
 ---
 
-# 🔍 Saída
+# Saída
 
 ```txt
 Olá Carlos
@@ -583,7 +583,7 @@ Olá Carlos
 
 ---
 
-# 📌 Structs em aplicações reais
+# Structs em aplicações reais
 
 Structs são utilizadas em:
 
@@ -597,7 +597,7 @@ Structs são utilizadas em:
 
 ---
 
-# 📌 Exemplo de usuário
+# Exemplo de usuário
 
 ```go
 type Usuario struct {
@@ -609,7 +609,7 @@ type Usuario struct {
 
 ---
 
-# 📌 Exemplo de produto
+# Exemplo de produto
 
 ```go
 type Produto struct {
@@ -621,7 +621,7 @@ type Produto struct {
 
 ---
 
-# 📌 Exemplo de conta bancária
+# Exemplo de conta bancária
 
 ```go
 type Conta struct {
@@ -632,7 +632,7 @@ type Conta struct {
 
 ---
 
-# 🚀 Método de depósito
+# Método de depósito
 
 ```go
 func (c *Conta) Depositar(valor float64) {
@@ -642,7 +642,7 @@ func (c *Conta) Depositar(valor float64) {
 
 ---
 
-# 🚀 Método de saque
+# Método de saque
 
 ```go
 func (c *Conta) Sacar(valor float64) {
@@ -658,7 +658,7 @@ func (c *Conta) Sacar(valor float64) {
 
 ---
 
-# 📌 Encapsulamento em Go
+# Encapsulamento em Go
 
 Go não possui `private/public` tradicional.
 
@@ -666,7 +666,7 @@ A visibilidade depende da letra inicial.
 
 ---
 
-# ✅ Público
+# Público
 
 ```go
 Nome
@@ -676,7 +676,7 @@ Pessoa
 
 ---
 
-# ✅ Privado
+# Privado
 
 ```go
 nome
@@ -686,7 +686,7 @@ pessoa
 
 ---
 
-# 📌 Regras
+# Regras
 
 | Tipo | Visibilidade |
 |---|---|
@@ -695,13 +695,13 @@ pessoa
 
 ---
 
-# 📌 Structs Anônimas
+# Structs Anônimas
 
 Go permite criar structs sem nome.
 
 ---
 
-# ✅ Exemplo
+# Exemplo
 
 ```go
 usuario := struct {
@@ -715,7 +715,7 @@ usuario := struct {
 
 ---
 
-# 📌 Quando usar?
+# Quando usar?
 
 Structs anônimas são úteis para:
 
@@ -725,7 +725,7 @@ Structs anônimas são úteis para:
 
 ---
 
-# 📌 Composição em Go
+# Composição em Go
 
 Go não possui herança tradicional.
 
@@ -733,7 +733,7 @@ Em vez disso utiliza composição.
 
 ---
 
-# ✅ Exemplo
+# Exemplo
 
 ```go
 type Motor struct {
@@ -748,7 +748,7 @@ type Carro struct {
 
 ---
 
-# 🔍 Estrutura
+# Estrutura
 
 ```txt
 Carro
@@ -759,7 +759,7 @@ Carro
 
 ---
 
-# 📌 Vantagens da composição
+# Vantagens da composição
 
 - Código mais desacoplado
 - Reutilização
@@ -768,7 +768,7 @@ Carro
 
 ---
 
-# 🚀 Exemplo Completo
+# Exemplo Completo
 
 ```go
 package main
@@ -823,7 +823,7 @@ func main() {
 
 ---
 
-# 🔍 Saída Esperada
+# Saída Esperada
 
 ```txt
 Kassia
@@ -837,7 +837,7 @@ Bem-vindo Kassia
 
 ---
 
-# ✅ Boas Práticas
+# Boas Práticas
 
 | Prática | Motivo |
 |---|---|
