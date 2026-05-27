@@ -1,10 +1,4 @@
-# 🚀 Arrays, Slices e Maps em Go
-
-> Guia completo e aprofundado sobre Arrays, Slices e Maps na linguagem Go, incluindo conceitos, funcionamento interno, memória, explicações detalhadas, exemplos práticos e boas práticas utilizadas no mercado.
-
----
-
-# 📘 4. Arrays, Slices e Maps
+# 4. Arrays, Slices e Maps
 
 Ao desenvolver programas, muitas vezes precisamos armazenar vários valores.
 
