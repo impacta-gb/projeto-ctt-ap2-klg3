@@ -1,12 +1,17 @@
-# 2. Sintaxe Básica e Variáveis
+# Sintaxe Básica e Variáveis em Go
 
-## Estrutura Básica de um Programa Go
+> Guia completo sobre estrutura básica, variáveis, tipos primitivos, constantes e boas práticas na linguagem Go.
 
-Um programa Go é organizado em **pacotes** (packages). Todo arquivo fonte Go pertence a exatamente um pacote, declarado na primeira linha do arquivo com a palavra-chave `package`.
+---
 
-O ponto de entrada para qualquer aplicação executável em Go é a função `main()`, que deve pertencer ao pacote `main`.
+# 📘 2. Sintaxe Básica e Variáveis
 
-### Exemplo de estrutura básica:
+## 📌 Estrutura Básica de um Programa Go
+
+Todo programa em Go começa com um **pacote** (`package`).  
+O ponto de entrada de uma aplicação executável é a função `main()`.
+
+## ✅ Exemplo Básico
 
 ```go
 package main
@@ -16,188 +21,437 @@ import "fmt"
 func main() {
     fmt.Println("Olá Mundo")
 }
-Explicação do código:
-Linha	Explicação
-package main	Declara que este arquivo pertence ao pacote principal
-import "fmt"	Importa o pacote fmt para formatação e saída de texto
-func main()	Função principal, ponto de entrada do programa
-fmt.Println()	Função que imprime texto no console
-Pacotes e Importações
-O conceito de pacotes em Go é fundamental para organizar código e gerenciar dependências. Pacotes permitem:
+```
 
-Encapsulamento: Identificadores começados com letra maiúscula são exportados (públicos), enquanto letra minúscula indica visibilidade interna ao pacote.
+---
 
-Reutilização: Pacotes podem ser importados por outros pacotes usando a palavra-chave import.
+## 🔍 Explicação do Código
 
-Namespace: Cada pacote cria seu próprio escopo, evitando conflitos de nomes.
+| Linha | Explicação |
+|---|---|
+| `package main` | Define o pacote principal da aplicação |
+| `import "fmt"` | Importa o pacote de formatação e saída |
+| `func main()` | Função principal executada ao iniciar o programa |
+| `fmt.Println()` | Imprime texto no terminal |
 
-Múltiplas importações:
-go
+---
+
+# 📦 Pacotes e Importações
+
+Go utiliza pacotes para organizar o código.
+
+## ✅ Exemplo de múltiplas importações
+
+```go
 import (
     "fmt"
     "math"
     "strings"
 )
-Declaração de Variáveis
-Go é uma linguagem de tipagem estática, o que significa que o tipo de uma variável é conhecido em tempo de compilação. Isso traz benefícios como:
+```
 
-Segurança: Erros de tipo são detectados antes da execução.
+---
 
-Performance: O compilador pode otimizar o código com base nos tipos.
+## 📌 Conceitos Importantes
 
-Manutenibilidade: O código se torna mais previsível e documentado.
+### Encapsulamento
 
-Declaração explícita com var:
-go
+- Identificadores iniciados com **letra maiúscula** são públicos/exportados.
+- Identificadores iniciados com **letra minúscula** são privados do pacote.
+
+```go
+var Publico string = "Visível fora do pacote"
+var privado string = "Visível apenas no pacote"
+```
+
+---
+
+### Namespace
+
+Cada pacote possui seu próprio escopo, evitando conflitos de nomes.
+
+---
+
+# 🧠 Declaração de Variáveis
+
+Go é uma linguagem de **tipagem estática**.
+
+Isso significa que:
+
+- O tipo da variável é conhecido em tempo de compilação.
+- Erros de tipo são detectados antes da execução.
+- O compilador consegue otimizar melhor o código.
+
+---
+
+# ✅ Declaração Tradicional com `var`
+
+```go
 var nome string = "Kassia"
 var idade int = 20
-Sintaxe da declaração com var:
-go
+```
+
+---
+
+## 📌 Sintaxe
+
+```go
 var nomeDaVariavel tipo = valor
-Declaração sem valor inicial (recebe valor zero):
-go
-var nome string     // recebe "" (string vazia)
-var idade int       // recebe 0
-var ativo bool      // recebe false
-var preco float64   // recebe 0.0
-Múltiplas declarações em bloco:
-go
+```
+
+---
+
+# 📌 Variáveis sem Inicialização
+
+Quando uma variável não recebe valor, Go utiliza o **valor zero** do tipo.
+
+```go
+var nome string
+var idade int
+var ativo bool
+var preco float64
+```
+
+---
+
+## 🔍 Valores Recebidos
+
+| Tipo | Valor Zero |
+|---|---|
+| `string` | `""` |
+| `int` | `0` |
+| `bool` | `false` |
+| `float64` | `0.0` |
+
+---
+
+# 📌 Múltiplas Declarações
+
+## Em bloco
+
+```go
 var (
-    nome  string = "João"
-    idade int    = 30
+    nome   string = "João"
+    idade  int    = 30
     cidade string = "São Paulo"
 )
-Múltiplas variáveis em uma linha:
-go
-var x, y int = 10, 20
-var nome, idade = "Maria", 25  // tipos inferidos
-Declaração Curta com :=
-Disponível apenas dentro de funções, é a forma mais concisa e amplamente utilizada em código Go moderno. O compilador infere automaticamente o tipo da variável com base no valor atribuído.
+```
 
-go
+---
+
+## Na mesma linha
+
+```go
+var x, y int = 10, 20
+var nome, idade = "Maria", 25
+```
+
+> O Go consegue inferir automaticamente os tipos quando possível.
+
+---
+
+# ⚡ Declaração Curta com `:=`
+
+A forma mais comum em Go moderno.
+
+## ✅ Exemplo
+
+```go
 cidade := "São Paulo"
-Múltiplas declarações curtas:
-go
+```
+
+---
+
+## ✅ Múltiplas variáveis
+
+```go
 nome, idade := "Carlos", 28
 x, y := 10, 20
 ativo, preco := true, 99.90
-Tipos Primitivos
-Tipos Numéricos
-Categoria	Tipos	Descrição
-Inteiros padrão	int, uint	Tamanho dependente da plataforma (32 ou 64 bits)
-Inteiros 8 bits	int8, uint8	-128 a 127 / 0 a 255
-Inteiros 16 bits	int16, uint16	-32768 a 32767 / 0 a 65535
-Inteiros 32 bits	int32, uint32	-2³¹ a 2³¹-1 / 0 a 2³²-1
-Inteiros 64 bits	int64, uint64	-2⁶³ a 2⁶³-1 / 0 a 2⁶⁴-1
-Bytes e runes	byte, rune	byte = uint8, rune = int32 (Unicode)
-Ponto flutuante	float32, float64	Números decimais
-Números complexos	complex64, complex128	Parte real e imaginária
-Exemplos de uso:
-go
+```
+
+---
+
+# ⚠️ Importante sobre `:=`
+
+```go
+cidade := "São Paulo"
+```
+
+O operador `:=`:
+
+- Só funciona **dentro de funções**
+- Não pode ser usado no escopo global
+
+---
+
+# 🔢 Tipos Primitivos
+
+## 📌 Tipos mais utilizados
+
+| Tipo | Exemplo |
+|---|---|
+| `int` | `10` |
+| `string` | `"Go"` |
+| `bool` | `true` |
+| `float64` | `10.5` |
+
+---
+
+# 🔢 Tipos Numéricos
+
+| Categoria | Tipos | Descrição |
+|---|---|---|
+| Inteiros padrão | `int`, `uint` | Dependem da arquitetura |
+| Inteiros 8 bits | `int8`, `uint8` | -128 a 127 |
+| Inteiros 16 bits | `int16`, `uint16` | Valores maiores |
+| Inteiros 32 bits | `int32`, `uint32` | Utilizados em Unicode |
+| Inteiros 64 bits | `int64`, `uint64` | Grandes valores |
+| Ponto flutuante | `float32`, `float64` | Números decimais |
+| Complexos | `complex64`, `complex128` | Parte real + imaginária |
+
+---
+
+# ✅ Exemplos Numéricos
+
+```go
 var inteiro int = 42
 var pequeno int8 = 127
 var grande int64 = 9223372036854775807
 var decimal float64 = 3.14159
-var letra byte = 'A'
-var simbolo rune = '😀'
-Tipo Booleano
-O tipo bool representa valores verdadeiros ou falsos:
+```
 
-go
-var ativo bool = true
-var logado bool = false
-teste := true
-Tipo String
-Strings em Go são imutáveis e representam sequências de bytes UTF-8:
+---
 
-go
+# 🔤 Tipo `string`
+
+Strings são imutáveis e armazenadas em UTF-8.
+
+```go
 var nome string = "Go Lang"
+
 saudacao := "Olá, mundo!"
 vazia := ""
-Tabela de Tipos Primitivos
-Tipo	Exemplo	Valor zero
-int	10	0
-string	"Go"	"" (vazio)
-bool	true	false
-float64	10.5	0.0
-byte	'A'	0
-rune	'ç'	0
-Valores Zero (Zero Values)
-Um conceito fundamental em Go: toda variável declarada sem inicialização explícita recebe automaticamente o valor zero do seu tipo:
+```
 
-Tipo	Valor Zero
-Numérico (int, float, etc.)	0
-Booleano (bool)	false
-String (string)	"" (string vazia)
-Ponteiros, slices, maps, channels, funções, interfaces	nil
-go
-var a int       // a = 0
-var b string    // b = ""
-var c bool      // c = false
-var d float64   // d = 0.0
-Constantes
-Constantes são valores que não podem ser alterados durante a execução do programa:
+---
 
-go
+# ✅ Tipo `bool`
+
+Representa verdadeiro ou falso.
+
+```go
+var ativo bool = true
+var logado bool = false
+```
+
+---
+
+# 🔤 `byte` e `rune`
+
+## `byte`
+
+Alias para `uint8`.
+
+```go
+var letra byte = 'A'
+```
+
+---
+
+## `rune`
+
+Alias para `int32`, utilizado para Unicode.
+
+```go
+var simbolo rune = '😀'
+```
+
+---
+
+# 🎯 Valores Zero (Zero Values)
+
+Go inicializa automaticamente variáveis não definidas.
+
+## ✅ Exemplo
+
+```go
+var a int
+var b string
+var c bool
+var d float64
+```
+
+---
+
+## 🔍 Resultado
+
+| Variável | Valor |
+|---|---|
+| `a` | `0` |
+| `b` | `""` |
+| `c` | `false` |
+| `d` | `0.0` |
+
+---
+
+# 🔒 Constantes
+
+Constantes não podem ser alteradas durante a execução.
+
+## ✅ Exemplo
+
+```go
 const pi = 3.14159
+
 const nomeApp string = "MeuApp"
+```
+
+---
+
+## 📌 Bloco de constantes
+
+```go
 const (
     segundosPorMinuto = 60
     minutosPorHora    = 60
     horasPorDia       = 24
 )
-Escopo e Visibilidade
-Escopo	Localização	Visibilidade
-Pacote (global)	Fora de qualquer função	Todo o pacote
-Função	Dentro de uma função	Apenas na função
-Bloco	Dentro de {}	Apenas no bloco
-Exportado	Nome com letra MAIÚSCULA	Outros pacotes podem acessar
-Exemplo de visibilidade:
-go
-var Publico string = "Posso ser acessado de fora"     // Exportado (Maiúsculo)
-var privado string = "Só dentro do meu pacote"        // Não exportado (Minúsculo)
+```
 
-func FuncaoPublica() {}     // Exportada
-func funcaoPrivada() {}     // Não exportada
-Conversão de Tipos
-Go não permite conversão implícita entre tipos. É necessário conversão explícita:
+---
 
-go
+# 🌍 Escopo e Visibilidade
+
+| Escopo | Localização | Visibilidade |
+|---|---|---|
+| Global | Fora de funções | Todo o pacote |
+| Função | Dentro da função | Apenas na função |
+| Bloco | Dentro de `{}` | Apenas no bloco |
+
+---
+
+# 🔍 Exportação em Go
+
+## Público (Exportado)
+
+```go
+func FuncaoPublica() {}
+```
+
+---
+
+## Privado (Não exportado)
+
+```go
+func funcaoPrivada() {}
+```
+
+---
+
+# 🔄 Conversão de Tipos
+
+Go não faz conversões automáticas entre tipos.
+
+## ✅ Conversão explícita
+
+```go
 var x int = 10
-var y float64 = float64(x)  // Conversão explícita
+var y float64 = float64(x)
+```
 
+---
+
+## ✅ Conversão entre inteiros
+
+```go
 var a int32 = 42
-var b int64 = int64(a)      // Conversão entre inteiros
+var b int64 = int64(a)
+```
 
+---
+
+## ✅ Conversão para byte
+
+```go
 var i int = 65
-var c byte = byte(i)        // 65 -> 'A'
-Regras e Limitações Importantes
-!!! warning "Regra 1"
-Toda variável declarada deve ser usada. Variáveis não utilizadas geram erro de compilação.
+var c byte = byte(i)
+```
 
-!!! warning "Regra 2"
-O operador := só funciona dentro de funções. Não pode ser usado no escopo global do pacote.
+---
 
-!!! warning "Regra 3"
-O operador := redeclara variáveis em novos escopos. Cuidado ao usá-lo dentro de blocos if/for, pois pode criar uma nova variável local em vez de reutilizar a externa.
+# ⚠️ Regras Importantes
 
-!!! warning "Regra 4"
-Go não possui o operador ternário (cond ? a : b). Use if/else explícito.
+## ⚠️ Regra 1
 
-!!! note "Regra 5"
-O compilador Go infere o tipo quando você omite na declaração, mas a tipagem continua estática.
+Toda variável declarada deve ser utilizada.
 
-Boas Práticas
-Prática	Por quê?
-Prefira := dentro de funções	Código mais limpo e conciso
-Use blocos var agrupados	Melhor organização no escopo global
-Nomeie variáveis em camelCase	Padrão da comunidade (nomeCompleto)
-Use nomes curtos para escopos pequenos	i para loop, s para string
-Declare variáveis perto do uso	Melhora a legibilidade
-Evite variáveis globais	Prefira passar parâmetros explicitamente
-Constantes: use PascalCase ou camelCase	Evite SCREAMING_SNAKE_CASE
-Exemplo Completo
-go
+```go
+var nome string // erro se não usar
+```
+
+---
+
+## ⚠️ Regra 2
+
+`:=` só funciona dentro de funções.
+
+```go
+func main() {
+    nome := "Go"
+}
+```
+
+---
+
+## ⚠️ Regra 3
+
+Go não possui operador ternário.
+
+❌ Errado:
+
+```go
+x := condicao ? 1 : 2
+```
+
+✅ Correto:
+
+```go
+if condicao {
+    x = 1
+} else {
+    x = 2
+}
+```
+
+---
+
+## ⚠️ Regra 4
+
+Go pode inferir tipos automaticamente.
+
+```go
+nome := "Kassia"
+idade := 20
+```
+
+---
+
+# ✅ Boas Práticas
+
+| Prática | Motivo |
+|---|---|
+| Prefira `:=` | Código mais limpo |
+| Use `camelCase` | Padrão da comunidade |
+| Variáveis próximas do uso | Melhor legibilidade |
+| Evite globais | Código mais seguro |
+| Use constantes | Evita valores mágicos |
+
+---
+
+# 🚀 Exemplo Completo
+
+```go
 package main
 
 import "fmt"
@@ -207,25 +461,42 @@ const appName = "Documentação Go"
 
 // Variáveis globais
 var versao string = "1.24"
+
 var (
-    autor   string = "Equipe CTT"
-    ano     int    = 2026
+    autor string = "Equipe CTT"
+    ano   int    = 2026
 )
 
 func main() {
-    // Declaração curta dentro da função
+
+    // Declaração curta
     mensagem := "Olá, mundo!"
-    
-    // Múltiplas declarações curtas
+
+    // Múltiplas variáveis
     nome, idade := "Kassia", 20
-    
+
     // Conversão explícita
     var x int = 10
     var y float64 = float64(x)
-    
+
     fmt.Println(mensagem)
-    fmt.Println("Nome:", nome, "Idade:", idade)
+    fmt.Println("Nome:", nome)
+    fmt.Println("Idade:", idade)
     fmt.Println("Conversão:", y)
 }
-!!! tip "Dica Final"
-A declaração curta := é a forma mais comum em código Go. Use var apenas quando precisar de um valor zero explícito ou no escopo global do pacote.
+```
+
+---
+
+# 💡 Dica Final
+
+> Em Go, a declaração curta `:=` é a forma mais utilizada no dia a dia.  
+> Use `var` principalmente para variáveis globais ou quando precisar do valor zero explicitamente.
+
+---
+
+# 📚 Referências Oficiais
+
+- Documentação Oficial Go: https://go.dev/doc/
+- Tour of Go: https://go.dev/tour/
+- Effective Go: https://go.dev/doc/effective_go
