@@ -488,15 +488,9 @@ func main() {
 
 ---
 
-# 💡 Dica Final
+# 💡 Dica 
 
 > Em Go, a declaração curta `:=` é a forma mais utilizada no dia a dia.  
 > Use `var` principalmente para variáveis globais ou quando precisar do valor zero explicitamente.
 
 ---
-
-# 📚 Referências Oficiais
-
-- Documentação Oficial Go: https://go.dev/doc/
-- Tour of Go: https://go.dev/tour/
-- Effective Go: https://go.dev/doc/effective_go
