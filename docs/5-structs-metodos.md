@@ -19,7 +19,7 @@ Para organizar esses dados, Go utiliza:
 
 ---
 
-# O que é uma Struct?
+## O que é uma Struct?
 
 Uma `struct` é uma estrutura que agrupa múltiplos dados relacionados em um único tipo.
 
@@ -32,7 +32,7 @@ Ela funciona de forma parecida com:
 
 ---
 
-# 📌 Exemplo do mundo real
+# Exemplo do mundo real
 
 Imagine uma pessoa.
 
@@ -97,7 +97,7 @@ Pessoa
 
 ---
 
-# Structs agrupam dados relacionados
+## Structs agrupam dados relacionados
 
 A ideia principal é:
 
@@ -105,7 +105,7 @@ A ideia principal é:
 
 ---
 
-# Criando Objetos (Instâncias)
+## Criando Objetos (Instâncias)
 
 Depois de criar a struct, podemos criar variáveis baseadas nela.
 
@@ -243,7 +243,7 @@ Pessoa{
 
 ---
 
-# Valores Zero em Structs
+## Valores Zero em Structs
 
 Se um campo não for preenchido, Go utiliza o valor zero.
 
@@ -266,7 +266,7 @@ p := Pessoa{}
 
 ---
 
-# Structs Aninhadas
+## Structs Aninhadas
 
 Uma struct pode conter outra struct.
 
@@ -334,7 +334,7 @@ São Paulo
 
 ---
 
-# Métodos em Go
+## Métodos em Go
 
 Métodos são funções associadas a uma struct.
 
@@ -376,7 +376,7 @@ func (p Pessoa) Apresentar() {
 
 ---
 
-# O que é Receiver?
+## O que é Receiver?
 
 O receiver conecta o método à struct.
 
@@ -427,7 +427,7 @@ Olá, Kassia
 
 ---
 
-# O que acontece internamente?
+## O que acontece internamente?
 
 O Go transforma:
 
@@ -443,7 +443,7 @@ Apresentar(p)
 
 ---
 
-# Métodos com Retorno
+## Métodos com Retorno
 
 Métodos podem retornar valores.
 
@@ -477,7 +477,7 @@ Olá Kassia
 
 ---
 
-# Métodos com Ponteiros
+## Métodos com Ponteiros
 
 Métodos podem alterar os dados da struct.
 
@@ -553,7 +553,7 @@ Idade aumentada
 
 ---
 
-# Métodos podem receber parâmetros
+## Métodos podem receber parâmetros
 
 ---
 
@@ -583,7 +583,7 @@ Olá Carlos
 
 ---
 
-# Structs em aplicações reais
+## Structs em aplicações reais
 
 Structs são utilizadas em:
 
@@ -695,7 +695,7 @@ pessoa
 
 ---
 
-# Structs Anônimas
+## Structs Anônimas
 
 Go permite criar structs sem nome.
 
