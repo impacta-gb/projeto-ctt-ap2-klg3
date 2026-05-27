@@ -1,11 +1,11 @@
 # 2. Sintaxe Básica e Variáveis
 
-## 📌 Estrutura Básica de um Programa Go
+## Estrutura Básica de um Programa Go
 
 Todo programa em Go começa com um **pacote** (`package`).  
 O ponto de entrada de uma aplicação executável é a função `main()`.
 
-## ✅ Exemplo Básico
+## Exemplo Básico
 
 ```go
 package main
@@ -19,7 +19,7 @@ func main() {
 
 ---
 
-## 🔍 Explicação do Código
+## Explicação do Código
 
 | Linha | Explicação |
 |---|---|
@@ -30,11 +30,11 @@ func main() {
 
 ---
 
-# 📦 Pacotes e Importações
+# Pacotes e Importações
 
 Go utiliza pacotes para organizar o código.
 
-## ✅ Exemplo de múltiplas importações
+## Exemplo de múltiplas importações
 
 ```go
 import (
@@ -46,7 +46,7 @@ import (
 
 ---
 
-## 📌 Conceitos Importantes
+## Conceitos Importantes
 
 ### Encapsulamento
 
@@ -66,7 +66,7 @@ Cada pacote possui seu próprio escopo, evitando conflitos de nomes.
 
 ---
 
-# 🧠 Declaração de Variáveis
+# Declaração de Variáveis
 
 Go é uma linguagem de **tipagem estática**.
 
@@ -78,7 +78,7 @@ Isso significa que:
 
 ---
 
-# ✅ Declaração Tradicional com `var`
+# Declaração Tradicional com `var`
 
 ```go
 var nome string = "Kassia"
@@ -87,7 +87,7 @@ var idade int = 20
 
 ---
 
-## 📌 Sintaxe
+## Sintaxe
 
 ```go
 var nomeDaVariavel tipo = valor
@@ -95,7 +95,7 @@ var nomeDaVariavel tipo = valor
 
 ---
 
-# 📌 Variáveis sem Inicialização
+# Variáveis sem Inicialização
 
 Quando uma variável não recebe valor, Go utiliza o **valor zero** do tipo.
 
@@ -108,7 +108,7 @@ var preco float64
 
 ---
 
-## 🔍 Valores Recebidos
+## Valores Recebidos
 
 | Tipo | Valor Zero |
 |---|---|
@@ -119,7 +119,7 @@ var preco float64
 
 ---
 
-# 📌 Múltiplas Declarações
+# Múltiplas Declarações
 
 ## Em bloco
 
@@ -144,11 +144,11 @@ var nome, idade = "Maria", 25
 
 ---
 
-# ⚡ Declaração Curta com `:=`
+# Declaração Curta com `:=`
 
 A forma mais comum em Go moderno.
 
-## ✅ Exemplo
+## Exemplo
 
 ```go
 cidade := "São Paulo"
@@ -156,7 +156,7 @@ cidade := "São Paulo"
 
 ---
 
-## ✅ Múltiplas variáveis
+## Múltiplas variáveis
 
 ```go
 nome, idade := "Carlos", 28
@@ -166,7 +166,7 @@ ativo, preco := true, 99.90
 
 ---
 
-# ⚠️ Importante sobre `:=`
+# Importante sobre `:=`
 
 ```go
 cidade := "São Paulo"
@@ -179,9 +179,9 @@ O operador `:=`:
 
 ---
 
-# 🔢 Tipos Primitivos
+# Tipos Primitivos
 
-## 📌 Tipos mais utilizados
+## Tipos mais utilizados
 
 | Tipo | Exemplo |
 |---|---|
@@ -192,7 +192,7 @@ O operador `:=`:
 
 ---
 
-# 🔢 Tipos Numéricos
+# Tipos Numéricos
 
 | Categoria | Tipos | Descrição |
 |---|---|---|
@@ -206,7 +206,7 @@ O operador `:=`:
 
 ---
 
-# ✅ Exemplos Numéricos
+# Exemplos Numéricos
 
 ```go
 var inteiro int = 42
@@ -217,7 +217,7 @@ var decimal float64 = 3.14159
 
 ---
 
-# 🔤 Tipo `string`
+# Tipo `string`
 
 Strings são imutáveis e armazenadas em UTF-8.
 
@@ -230,7 +230,7 @@ vazia := ""
 
 ---
 
-# ✅ Tipo `bool`
+# Tipo `bool`
 
 Representa verdadeiro ou falso.
 
@@ -241,7 +241,7 @@ var logado bool = false
 
 ---
 
-# 🔤 `byte` e `rune`
+# `byte` e `rune`
 
 ## `byte`
 
@@ -263,11 +263,11 @@ var simbolo rune = '😀'
 
 ---
 
-# 🎯 Valores Zero (Zero Values)
+# Valores Zero (Zero Values)
 
 Go inicializa automaticamente variáveis não definidas.
 
-## ✅ Exemplo
+## Exemplo
 
 ```go
 var a int
@@ -278,7 +278,7 @@ var d float64
 
 ---
 
-## 🔍 Resultado
+## Resultado
 
 | Variável | Valor |
 |---|---|
@@ -289,11 +289,11 @@ var d float64
 
 ---
 
-# 🔒 Constantes
+# Constantes
 
 Constantes não podem ser alteradas durante a execução.
 
-## ✅ Exemplo
+## Exemplo
 
 ```go
 const pi = 3.14159
@@ -303,7 +303,7 @@ const nomeApp string = "MeuApp"
 
 ---
 
-## 📌 Bloco de constantes
+## Bloco de constantes
 
 ```go
 const (
@@ -315,7 +315,7 @@ const (
 
 ---
 
-# 🌍 Escopo e Visibilidade
+# Escopo e Visibilidade
 
 | Escopo | Localização | Visibilidade |
 |---|---|---|
@@ -325,7 +325,7 @@ const (
 
 ---
 
-# 🔍 Exportação em Go
+# Exportação em Go
 
 ## Público (Exportado)
 
@@ -343,11 +343,11 @@ func funcaoPrivada() {}
 
 ---
 
-# 🔄 Conversão de Tipos
+# Conversão de Tipos
 
 Go não faz conversões automáticas entre tipos.
 
-## ✅ Conversão explícita
+## Conversão explícita
 
 ```go
 var x int = 10
@@ -356,7 +356,7 @@ var y float64 = float64(x)
 
 ---
 
-## ✅ Conversão entre inteiros
+## Conversão entre inteiros
 
 ```go
 var a int32 = 42
@@ -365,7 +365,7 @@ var b int64 = int64(a)
 
 ---
 
-## ✅ Conversão para byte
+## Conversão para byte
 
 ```go
 var i int = 65
@@ -374,9 +374,9 @@ var c byte = byte(i)
 
 ---
 
-# ⚠️ Regras Importantes
+# Regras Importantes
 
-## ⚠️ Regra 1
+## Regra 1
 
 Toda variável declarada deve ser utilizada.
 
@@ -386,7 +386,7 @@ var nome string // erro se não usar
 
 ---
 
-## ⚠️ Regra 2
+## Regra 2
 
 `:=` só funciona dentro de funções.
 
@@ -398,7 +398,7 @@ func main() {
 
 ---
 
-## ⚠️ Regra 3
+## Regra 3
 
 Go não possui operador ternário.
 
@@ -420,7 +420,7 @@ if condicao {
 
 ---
 
-## ⚠️ Regra 4
+## Regra 4
 
 Go pode inferir tipos automaticamente.
 
@@ -431,7 +431,7 @@ idade := 20
 
 ---
 
-# ✅ Boas Práticas
+# Boas Práticas
 
 | Prática | Motivo |
 |---|---|
@@ -443,7 +443,7 @@ idade := 20
 
 ---
 
-# 🚀 Exemplo Completo
+# Exemplo Completo
 
 ```go
 package main
