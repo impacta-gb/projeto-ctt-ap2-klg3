@@ -22,7 +22,7 @@ As principais são:
 
 ---
 
-# O que são Estruturas de Dados?
+## O que são Estruturas de Dados?
 
 Estruturas de dados são formas de organizar informações na memória.
 
@@ -36,7 +36,7 @@ Elas ajudam em:
 
 ---
 
-# Arrays
+## Arrays
 
 Arrays armazenam múltiplos valores do mesmo tipo.
 
@@ -63,7 +63,7 @@ var numeros [3]int
 
 ---
 
-# Como o Array funciona na memória?
+## Como o Array funciona na memória?
 
 Quando criamos:
 
@@ -376,7 +376,7 @@ O `range` percorre automaticamente estruturas como:
 
 ---
 
-# Slices
+## Slices
 
 Slices são estruturas dinâmicas construídas sobre arrays.
 
@@ -386,7 +386,7 @@ Na prática:
 
 ---
 
-# Por que slices existem?
+## Por que slices existem?
 
 Arrays possuem limitações:
 
@@ -589,7 +589,7 @@ for indice, valor := range nomes {
 
 ---
 
-# Maps
+## Maps
 
 Maps armazenam dados no formato:
 
