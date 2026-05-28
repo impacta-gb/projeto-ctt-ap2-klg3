@@ -14,7 +14,7 @@ O Go Modules tornou o gerenciamento de pacotes muito mais simples e moderno.
 
 ---
 
-# O que é um módulo?
+## O que é um módulo?
 
 Um módulo é um projeto Go.
 
@@ -35,7 +35,7 @@ Esse arquivo é o coração do gerenciamento de dependências em Go.
 
 ---
 
-# Inicializando um Projeto Go
+## Inicializando um Projeto Go
 
 Para iniciar um projeto com Go Modules usamos:
 
@@ -45,7 +45,7 @@ go mod init meu-projeto
 
 ---
 
-## Explicação do comando
+### Explicação do comando
 
 | Parte | Função |
 |---|---|
@@ -56,7 +56,7 @@ go mod init meu-projeto
 
 ---
 
-# O que acontece ao executar?
+## O que acontece ao executar?
 
 O Go cria automaticamente:
 
@@ -66,7 +66,7 @@ go.mod
 
 ---
 
-## Estrutura inicial
+### Estrutura inicial
 
 ```txt
 meu-projeto/
@@ -76,7 +76,7 @@ meu-projeto/
 
 ---
 
-# Exemplo do arquivo `go.mod`
+## Exemplo do arquivo `go.mod`
 
 ```txt
 module meu-projeto
@@ -86,7 +86,7 @@ go 1.24
 
 ---
 
-# Explicação do `go.mod`
+## Explicação do `go.mod`
 
 | Linha | Significado |
 |---|---|
@@ -95,7 +95,7 @@ go 1.24
 
 ---
 
-# Importância do `go.mod`
+## Importância do `go.mod`
 
 O `go.mod` controla:
 
@@ -108,7 +108,7 @@ Sem ele, o Go não consegue gerenciar corretamente bibliotecas externas.
 
 ---
 
-# Instalando Dependências
+## Instalando Dependências
 
 Em Go, bibliotecas externas podem ser instaladas usando:
 
@@ -118,7 +118,7 @@ go get github.com/gin-gonic/gin
 
 ---
 
-# O que é essa dependência?
+## O que é essa dependência?
 
 A biblioteca:
 
@@ -136,7 +136,7 @@ Muito utilizado para:
 
 ---
 
-# Explicação do comando
+## Explicação do comando
 
 | Parte | Função |
 |---|---|
@@ -145,7 +145,7 @@ Muito utilizado para:
 
 ---
 
-# O que acontece após instalar?
+## O que acontece após instalar?
 
 O Go:
 
@@ -155,7 +155,7 @@ O Go:
 
 ---
 
-# Arquivo `go.sum`
+## Arquivo `go.sum`
 
 O `go.sum` armazena verificações de segurança das dependências.
 
@@ -167,7 +167,7 @@ Ele garante:
 
 ---
 
-# Estrutura após instalar dependência
+## Estrutura após instalar dependência
 
 ```txt
 meu-projeto/
@@ -178,13 +178,13 @@ meu-projeto/
 
 ---
 
-# Importando Bibliotecas
+## Importando Bibliotecas
 
 Após instalar, podemos importar normalmente.
 
 ---
 
-## Exemplo
+### Exemplo
 
 ```go
 package main
@@ -206,7 +206,7 @@ func main() {
 
 ---
 
-# O que esse código faz?
+## O que esse código faz?
 
 Cria uma API simples utilizando o framework Gin.
 
@@ -226,7 +226,7 @@ o servidor retorna:
 
 ---
 
-# Atualizando Dependências
+## Atualizando Dependências
 
 Com o tempo, dependências podem ficar:
 
@@ -242,7 +242,7 @@ go mod tidy
 
 ---
 
-# O que o `go mod tidy` faz?
+## O que o `go mod tidy` faz?
 
 Esse comando:
 
@@ -253,7 +253,7 @@ Esse comando:
 
 ---
 
-# Boa prática importante
+## Boa prática importante
 
 Execute frequentemente:
 
@@ -269,7 +269,7 @@ principalmente antes de:
 
 ---
 
-# Baixando Dependências do Projeto
+## Baixando Dependências do Projeto
 
 Ao clonar um projeto Go, geralmente executamos:
 
@@ -279,7 +279,7 @@ go mod download
 
 ---
 
-# O que esse comando faz?
+## O que esse comando faz?
 
 Baixa todas as dependências listadas no:
 
@@ -289,7 +289,7 @@ go.mod
 
 ---
 
-# Verificando Dependências
+## Verificando Dependências
 
 Também podemos listar dependências instaladas:
 
@@ -299,7 +299,7 @@ go list -m all
 
 ---
 
-# Resultado esperado
+### Resultado esperado
 
 ```txt
 meu-projeto
@@ -310,11 +310,13 @@ github.com/go-playground/validator
 
 ---
 
-# Versionamento de Dependências
+## Versionamento de Dependências
 
 Go Modules suporta versionamento.
 
-Exemplo:
+---
+
+### Exemplo
 
 ```bash
 go get github.com/gin-gonic/gin@v1.10.0
@@ -322,7 +324,7 @@ go get github.com/gin-gonic/gin@v1.10.0
 
 ---
 
-# Explicação
+### Explicação
 
 | Parte | Função |
 |---|---|
@@ -330,7 +332,7 @@ go get github.com/gin-gonic/gin@v1.10.0
 
 ---
 
-# Vantagens do versionamento
+## Vantagens do versionamento
 
 Permite:
 
@@ -341,7 +343,7 @@ Permite:
 
 ---
 
-# Atualizando Bibliotecas
+## Atualizando Bibliotecas
 
 Para atualizar dependências:
 
@@ -351,7 +353,7 @@ go get -u
 
 ---
 
-# O que significa `-u`?
+## O que significa `-u`?
 
 A flag:
 
@@ -367,7 +369,7 @@ update
 
 ---
 
-# Dependências Diretas e Indiretas
+## Dependências Diretas e Indiretas
 
 No `go.mod` podem existir:
 
@@ -376,7 +378,7 @@ No `go.mod` podem existir:
 
 ---
 
-## Exemplo
+### Exemplo
 
 ```txt
 require (
@@ -386,7 +388,7 @@ require (
 
 ---
 
-# Dependências indiretas
+## Dependências indiretas
 
 Algumas bibliotecas dependem de outras bibliotecas.
 
@@ -394,7 +396,7 @@ O Go instala automaticamente essas dependências secundárias.
 
 ---
 
-# Cache de Dependências
+## Cache de Dependências
 
 O Go possui cache automático.
 
@@ -406,7 +408,7 @@ Isso melhora:
 
 ---
 
-# Onde as dependências ficam?
+## Onde as dependências ficam?
 
 Normalmente em:
 
@@ -416,7 +418,7 @@ $GOPATH/pkg/mod
 
 ---
 
-# Gerenciamento moderno em Go
+## Gerenciamento moderno em Go
 
 Antes do Go Modules, era necessário usar ferramentas externas.
 
@@ -430,9 +432,9 @@ Isso trouxe:
 
 ---
 
-# Fluxo comum de desenvolvimento
+## Fluxo comum de desenvolvimento
 
-## 1. Criar projeto
+### 1. Criar projeto
 
 ```bash
 go mod init meu-projeto
@@ -440,7 +442,7 @@ go mod init meu-projeto
 
 ---
 
-## 2. Instalar bibliotecas
+### 2. Instalar bibliotecas
 
 ```bash
 go get github.com/gin-gonic/gin
@@ -448,7 +450,7 @@ go get github.com/gin-gonic/gin
 
 ---
 
-## 3. Desenvolver aplicação
+### 3. Desenvolver aplicação
 
 ```bash
 go run main.go
@@ -456,7 +458,7 @@ go run main.go
 
 ---
 
-## 4. Organizar dependências
+### 4. Organizar dependências
 
 ```bash
 go mod tidy
@@ -464,7 +466,7 @@ go mod tidy
 
 ---
 
-# Estrutura comum de projeto Go
+## Estrutura comum de projeto Go
 
 ```txt
 meu-projeto/
@@ -479,7 +481,7 @@ meu-projeto/
 
 ---
 
-# Boas Práticas
+## Boas Práticas
 
 | Prática | Motivo |
 |---|---|
@@ -491,9 +493,9 @@ meu-projeto/
 
 ---
 
-# Problemas comuns
+## Problemas comuns
 
-## Dependência não encontrada
+### Dependência não encontrada
 
 Erro comum:
 
@@ -501,7 +503,9 @@ Erro comum:
 cannot find module
 ```
 
-### Solução
+---
+
+#### Solução
 
 Executar:
 
@@ -517,13 +521,13 @@ go get nome-da-biblioteca
 
 ---
 
-## Conflito de versões
+### Conflito de versões
 
 Pode ocorrer quando bibliotecas usam versões incompatíveis.
 
 ---
 
-## Solução
+#### Solução
 
 Atualizar dependências:
 
@@ -533,7 +537,7 @@ go get -u
 
 ---
 
-# IMPORTANTE
+## IMPORTANTE
 
 Os arquivos:
 
@@ -548,7 +552,7 @@ Eles garantem que outras pessoas consigam instalar exatamente as mesmas dependê
 
 ---
 
-# Conclusão
+## Conclusão
 
 O sistema de gerenciamento de pacotes do Go é simples, moderno e eficiente.
 
