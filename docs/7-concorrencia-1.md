@@ -14,13 +14,13 @@ Go foi criada pensando em:
 
 ---
 
-# 🧠 O que é Concorrência?
+## O que é Concorrência?
 
 Concorrência é a capacidade de executar múltiplas tarefas ao mesmo tempo.
 
 ---
 
-## Exemplo do mundo real
+### Exemplo do mundo real
 
 Imagine um restaurante.
 
@@ -34,7 +34,7 @@ Tudo acontece simultaneamente.
 
 ---
 
-## Em programação
+### Em programação
 
 Concorrência permite:
 
@@ -54,27 +54,27 @@ Concorrência permite:
 
 ---
 
-## Exemplo simples
+### Exemplo simples
 
-### Concorrência
+#### Concorrência
 
 Um único núcleo alterna rapidamente entre tarefas.
 
 ---
 
-### Paralelismo
+#### Paralelismo
 
 Múltiplos núcleos executam tarefas simultaneamente.
 
 ---
 
-# Goroutines
+## Goroutines
 
 Go utiliza Goroutines para concorrência.
 
 ---
 
-## 🧠 O que é uma Goroutine?
+### O que é uma Goroutine?
 
 Uma Goroutine é uma função executada concorrentemente.
 
@@ -82,7 +82,7 @@ Ela é extremamente leve comparada a threads tradicionais.
 
 ---
 
-## Vantagens das Goroutines
+### Vantagens das Goroutines
 
 | Vantagem | Explicação |
 |---|---|
@@ -93,7 +93,7 @@ Ela é extremamente leve comparada a threads tradicionais.
 
 ---
 
-## Comparação com Threads
+### Comparação com Threads
 
 | Característica | Thread | Goroutine |
 |---|---|---|
@@ -170,9 +170,9 @@ func main() {
 
 ---
 
-# 🔍 Explicação Completa
+## Explicação Completa
 
-## Importações
+### Importações
 
 ```go
 import (
@@ -183,13 +183,13 @@ import (
 
 ---
 
-### Pacote `fmt`
+#### Pacote `fmt`
 
 Usado para imprimir informações no terminal.
 
 ---
 
-### Pacote `time`
+#### Pacote `time`
 
 Usado para:
 
@@ -200,7 +200,7 @@ Usado para:
 
 ---
 
-## Função `tarefa`
+### Função `tarefa`
 
 ```go
 func tarefa() {
@@ -210,7 +210,7 @@ func tarefa() {
 
 ---
 
-### O que ela faz?
+#### O que ela faz?
 
 Apenas imprime:
 
@@ -220,7 +220,7 @@ Executando...
 
 ---
 
-## Criando Goroutine
+### Criando Goroutine
 
 ```go
 go tarefa()
@@ -228,7 +228,7 @@ go tarefa()
 
 ---
 
-### O que acontece?
+#### O que acontece?
 
 O Go cria uma nova Goroutine.
 
@@ -236,13 +236,13 @@ A função começa a executar em paralelo ao restante do programa.
 
 ---
 
-## Problema importante
+### Problema importante
 
 O `main()` pode terminar antes da Goroutine.
 
 ---
 
-### Exemplo sem `Sleep`
+#### Exemplo sem `Sleep`
 
 ```go
 func main() {
@@ -252,19 +252,19 @@ func main() {
 
 ---
 
-### Possível resultado
+#### Possível resultado
 
 Nada será exibido.
 
 ---
 
-### Por quê?
+#### Por quê?
 
 O programa termina antes da Goroutine executar.
 
 ---
 
-## Solução utilizada no exemplo
+### Solução utilizada no exemplo
 
 ```go
 time.Sleep(time.Second)
@@ -272,7 +272,7 @@ time.Sleep(time.Second)
 
 ---
 
-### Explicação
+#### Explicação
 
 Faz o programa esperar:
 
@@ -284,7 +284,7 @@ Assim a Goroutine consegue executar.
 
 ---
 
-## O que é `time.Second`?
+### O que é `time.Second`?
 
 Representa:
 
@@ -294,7 +294,7 @@ Representa:
 
 ---
 
-## Outros exemplos
+### Outros exemplos
 
 ```go
 time.Millisecond
@@ -388,13 +388,13 @@ As duas funções executaram concorrentemente.
 
 ---
 
-## Ordem NÃO é garantida
+### Ordem NÃO é garantida
 
 A ordem pode mudar.
 
 ---
 
-## Importante
+### Importante
 
 Concorrência NÃO garante ordem de execução.
 
@@ -416,7 +416,7 @@ O scheduler decide:
 
 ---
 
-## O desenvolvedor NÃO controla diretamente
+### O desenvolvedor NÃO controla diretamente
 
 O runtime Go gerencia automaticamente.
 
@@ -477,13 +477,13 @@ func main() {
 
 ---
 
-## Problema desse código
+### Problema desse código
 
 O programa provavelmente finalizará antes.
 
 ---
 
-## Solução simples
+### Solução simples
 
 ```go
 time.Sleep(time.Second)
@@ -491,13 +491,13 @@ time.Sleep(time.Second)
 
 ---
 
-## Mas NÃO é ideal
+### Mas NÃO é ideal
 
 `Sleep()` é apenas solução temporária.
 
 ---
 
-## Em aplicações reais usamos:
+### Em aplicações reais usamos:
 
 - WaitGroup
 - Channels
@@ -527,7 +527,7 @@ Criamos:
 
 ---
 
-## Muito usado em APIs e servidores
+### Muito usado em APIs e servidores
 
 ---
 
@@ -566,7 +566,7 @@ Goroutines são utilizadas em:
 
 ---
 
-## Exemplo real
+### Exemplo real
 
 Servidor web atendendo múltiplos usuários simultaneamente.
 
@@ -580,13 +580,13 @@ Concorrência pode gerar problemas.
 
 ---
 
-## Race Condition
+### Race Condition
 
 Acontece quando múltiplas Goroutines alteram os mesmos dados.
 
 ---
 
-### Exemplo perigoso
+#### Exemplo perigoso
 
 ```go
 var contador int
@@ -598,35 +598,35 @@ func incrementar() {
 
 ---
 
-### Problema
+#### Problema
 
 Duas Goroutines podem alterar ao mesmo tempo.
 
 ---
 
-### Resultado
+#### Resultado
 
 Valores incorretos.
 
 ---
 
-## Deadlock
+### Deadlock
 
 Acontece quando Goroutines ficam esperando indefinidamente.
 
 ---
 
-## Muito comum com Channels
+#### Muito comum com Channels
 
 ---
 
-## Starvation
+### Starvation
 
 Uma Goroutine nunca recebe tempo suficiente de execução.
 
 ---
 
-## Scheduler cooperativo
+### Scheduler cooperativo
 
 Go pausa Goroutines automaticamente para equilibrar execução.
 
@@ -693,7 +693,7 @@ func main() {
 
 ---
 
-## Possível saída
+### Possível saída
 
 ```txt
 Iniciando programa
@@ -785,7 +785,7 @@ Após Goroutines normalmente estudamos:
 
 ---
 
-# IMPORTANTE
+## IMPORTANTE
 
 > O programa pode finalizar antes da Goroutine terminar.
 
