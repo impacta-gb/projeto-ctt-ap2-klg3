@@ -845,13 +845,13 @@ errors.New("usuário não encontrado")
 
 !!! tip "Boa prática"
 
-   > O tratamento de erros é uma das características mais importantes da linguagem Go.
->
-> Em Go:
->
-> - Erros fazem parte do fluxo normal
-> - Tudo é explícito
-> - O código fica mais previsível
-> - Sistemas ficam mais estáveis
->
-> Dominar tratamento de erros é essencial para desenvolver aplicações profissionais em Go.
+   O tratamento de erros é uma das características mais importantes da linguagem Go.
+   
+   Em Go:
+   
+   - Erros fazem parte do fluxo normal
+   - Tudo é explícito
+   - O código fica mais previsível
+   - Sistemas ficam mais estáveis
+   
+   Dominar tratamento de erros é essencial para desenvolver aplicações profissionais em Go.
