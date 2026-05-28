@@ -14,33 +14,33 @@ Isso torna a criação e execução de testes extremamente simples.
 
 ---
 
-# O que são Testes Automatizados?
+## O que são Testes Automatizados?
 
 Testes automatizados são códigos criados para validar automaticamente o comportamento de funções e sistemas.
 
 Eles servem para:
 
-- verificar resultados;
-- evitar bugs;
-- garantir estabilidade;
-- facilitar manutenção;
-- aumentar confiabilidade.
+* verificar resultados;
+* evitar bugs;
+* garantir estabilidade;
+* facilitar manutenção;
+* aumentar confiabilidade.
 
 ---
 
-# Vantagens dos Testes
+## Vantagens dos Testes
 
-| Vantagem | Explicação |
-|---|---|
-| Segurança | Evita quebrar funcionalidades |
-| Qualidade | Garante comportamento correto |
-| Manutenção | Facilita alterações futuras |
-| Automação | Executa verificações automaticamente |
-| Confiabilidade | Reduz falhas em produção |
+| Vantagem       | Explicação                           |
+| -------------- | ------------------------------------ |
+| Segurança      | Evita quebrar funcionalidades        |
+| Qualidade      | Garante comportamento correto        |
+| Manutenção     | Facilita alterações futuras          |
+| Automação      | Executa verificações automaticamente |
+| Confiabilidade | Reduz falhas em produção             |
 
 ---
 
-# Pacote `testing`
+## Pacote `testing`
 
 Go possui um pacote padrão para testes.
 
@@ -52,7 +52,7 @@ import "testing"
 
 ---
 
-# Como funcionam os testes em Go?
+## Como funcionam os testes em Go?
 
 Os testes ficam em arquivos separados.
 
@@ -64,7 +64,7 @@ _test.go
 
 ---
 
-# Exemplo
+### Exemplo
 
 ```txt
 soma.go
@@ -73,7 +73,7 @@ soma_test.go
 
 ---
 
-# IMPORTANTE
+### IMPORTANTE
 
 O Go reconhece automaticamente arquivos de teste usando o sufixo:
 
@@ -83,9 +83,9 @@ _test.go
 
 ---
 
-# Estrutura Básica de um Teste
+## Estrutura Básica de um Teste
 
-## Exemplo completo
+### Exemplo completo
 
 ```go
 package main
@@ -107,9 +107,9 @@ func TestSoma(t *testing.T) {
 
 ---
 
-# Explicação do Código
+## Explicação do Código
 
-## Função `Soma`
+### Função `Soma`
 
 ```go
 func Soma(a, b int) int {
@@ -119,28 +119,28 @@ func Soma(a, b int) int {
 
 Essa função:
 
-- recebe dois números;
-- retorna a soma.
+* recebe dois números;
+* retorna a soma.
 
 ---
 
-## Função de Teste
+### Função de Teste
 
 ```go
 func TestSoma(t *testing.T)
 ```
 
-### Regras importantes
+#### Regras importantes
 
-| Regra | Explicação |
-|---|---|
-| Deve começar com `Test` | O Go reconhece como teste |
-| Recebe `*testing.T` | Controla falhas e mensagens |
-| Nome descritivo | Facilita organização |
+| Regra                   | Explicação                  |
+| ----------------------- | --------------------------- |
+| Deve começar com `Test` | O Go reconhece como teste   |
+| Recebe `*testing.T`     | Controla falhas e mensagens |
+| Nome descritivo         | Facilita organização        |
 
 ---
 
-# O que é `*testing.T`?
+## O que é `*testing.T`?
 
 O parâmetro:
 
@@ -150,13 +150,13 @@ t *testing.T
 
 é utilizado para:
 
-- reportar erros;
-- falhas;
-- mensagens de teste.
+* reportar erros;
+* falhas;
+* mensagens de teste.
 
 ---
 
-# Executando a função
+## Executando a função
 
 ```go
 resultado := Soma(2, 2)
@@ -166,7 +166,7 @@ Aqui o teste executa a função real.
 
 ---
 
-# Verificando o resultado
+## Verificando o resultado
 
 ```go
 if resultado != 4
@@ -174,12 +174,12 @@ if resultado != 4
 
 O teste compara:
 
-- resultado esperado;
-- resultado obtido.
+* resultado esperado;
+* resultado obtido.
 
 ---
 
-# Exibindo erro
+## Exibindo erro
 
 ```go
 t.Errorf("Esperado 4")
@@ -187,12 +187,12 @@ t.Errorf("Esperado 4")
 
 Se o valor estiver incorreto:
 
-- o teste falha;
-- a mensagem é exibida.
+* o teste falha;
+* a mensagem é exibida.
 
 ---
 
-# Executando Testes
+## Executando Testes
 
 Para executar todos os testes do projeto:
 
@@ -202,19 +202,19 @@ go test
 
 ---
 
-# O que o comando faz?
+### O que o comando faz?
 
 O Go:
 
-- procura arquivos `_test.go`;
-- executa funções `Test`;
-- mostra resultados.
+* procura arquivos `_test.go`;
+* executa funções `Test`;
+* mostra resultados.
 
 ---
 
-# Resultado esperado
+## Resultado esperado
 
-## Sucesso
+### Sucesso
 
 ```txt
 PASS
@@ -223,7 +223,7 @@ ok      projeto 0.001s
 
 ---
 
-## Falha
+### Falha
 
 ```txt
 --- FAIL: TestSoma
@@ -233,13 +233,13 @@ FAIL
 
 ---
 
-# Cobertura de Testes
+## Cobertura de Testes
 
 Cobertura mede quanto do código foi testado.
 
 ---
 
-## Executando cobertura
+### Executando cobertura
 
 ```bash
 go test -cover
@@ -247,7 +247,7 @@ go test -cover
 
 ---
 
-# Exemplo de saída
+### Exemplo de saída
 
 ```txt
 PASS
@@ -256,7 +256,7 @@ coverage: 85.0% of statements
 
 ---
 
-# O que significa?
+### O que significa?
 
 Significa que:
 
@@ -268,17 +268,17 @@ do código foi executado durante os testes.
 
 ---
 
-# Por que cobertura é importante?
+## Por que cobertura é importante?
 
 Ajuda a identificar:
 
-- partes não testadas;
-- funções esquecidas;
-- riscos de bugs.
+* partes não testadas;
+* funções esquecidas;
+* riscos de bugs.
 
 ---
 
-# Cobertura NÃO garante ausência de bugs
+## Cobertura NÃO garante ausência de bugs
 
 Mesmo com:
 
@@ -290,13 +290,13 @@ de cobertura, ainda podem existir problemas lógicos.
 
 ---
 
-# Testando Múltiplos Cenários
+## Testando Múltiplos Cenários
 
 É importante testar diferentes casos.
 
 ---
 
-## Exemplo
+### Exemplo
 
 ```go
 func TestSoma(t *testing.T) {
@@ -312,19 +312,19 @@ func TestSoma(t *testing.T) {
 
 ---
 
-# Casos comuns de teste
+### Casos comuns de teste
 
 Devemos validar:
 
-- valores positivos;
-- negativos;
-- zero;
-- limites;
-- entradas inválidas.
+* valores positivos;
+* negativos;
+* zero;
+* limites;
+* entradas inválidas.
 
 ---
 
-# Testes com Tabela (Table Tests)
+## Testes com Tabela (Table Tests)
 
 Muito comum em Go.
 
@@ -332,7 +332,7 @@ Permite organizar múltiplos testes.
 
 ---
 
-## Exemplo
+### Exemplo
 
 ```go
 package main
@@ -372,17 +372,17 @@ func TestSoma(t *testing.T) {
 
 ---
 
-# Vantagens do Table Test
+## Vantagens do Table Test
 
-| Vantagem | Explicação |
-|---|---|
-| Organização | Menos repetição |
+| Vantagem       | Explicação            |
+| -------------- | --------------------- |
+| Organização    | Menos repetição       |
 | Escalabilidade | Fácil adicionar casos |
-| Clareza | Código mais limpo |
+| Clareza        | Código mais limpo     |
 
 ---
 
-# Testes Verbosos
+## Testes Verbosos
 
 Para exibir mais detalhes:
 
@@ -392,7 +392,7 @@ go test -v
 
 ---
 
-# Exemplo de saída
+### Exemplo de saída
 
 ```txt
 === RUN   TestSoma
@@ -402,7 +402,7 @@ PASS
 
 ---
 
-# Executando Teste Específico
+## Executando Teste Específico
 
 ```bash
 go test -run TestSoma
@@ -410,7 +410,7 @@ go test -run TestSoma
 
 ---
 
-# Benchmark em Go
+## Benchmark em Go
 
 Go também suporta benchmark.
 
@@ -418,7 +418,7 @@ Usado para medir performance.
 
 ---
 
-## Exemplo
+### Exemplo
 
 ```go
 func BenchmarkSoma(b *testing.B) {
@@ -431,7 +431,7 @@ func BenchmarkSoma(b *testing.B) {
 
 ---
 
-# Executando benchmark
+## Executando benchmark
 
 ```bash
 go test -bench=.
@@ -439,19 +439,19 @@ go test -bench=.
 
 ---
 
-# O que é `b.N`?
+## O que é `b.N`?
 
 O Go executa a função várias vezes automaticamente para medir desempenho.
 
 ---
 
-# Testes Falhando Intencionalmente
+## Testes Falhando Intencionalmente
 
 Às vezes usamos falhas para validar comportamento.
 
 ---
 
-## Exemplo
+### Exemplo
 
 ```go
 t.Errorf("Erro proposital")
@@ -459,16 +459,16 @@ t.Errorf("Erro proposital")
 
 ---
 
-# Diferença entre `Error` e `Fatal`
+## Diferença entre `Error` e `Fatal`
 
-| Método | Comportamento |
-|---|---|
-| `t.Error()` | Marca erro e continua |
+| Método      | Comportamento            |
+| ----------- | ------------------------ |
+| `t.Error()` | Marca erro e continua    |
 | `t.Fatal()` | Interrompe imediatamente |
 
 ---
 
-# Exemplo
+### Exemplo
 
 ```go
 if resultado != 4 {
@@ -478,7 +478,7 @@ if resultado != 4 {
 
 ---
 
-# Estrutura comum de testes
+## Estrutura comum de testes
 
 ```txt
 projeto/
@@ -490,46 +490,46 @@ projeto/
 
 ---
 
-# Boas Práticas
+## Boas Práticas
 
-| Prática | Motivo |
-|---|---|
-| Use nomes claros | Facilita entendimento |
-| Teste múltiplos cenários | Maior segurança |
-| Automatize testes | Melhor qualidade |
-| Execute testes frequentemente | Evita bugs |
-| Utilize table tests | Organização |
+| Prática                       | Motivo                |
+| ----------------------------- | --------------------- |
+| Use nomes claros              | Facilita entendimento |
+| Teste múltiplos cenários      | Maior segurança       |
+| Automatize testes             | Melhor qualidade      |
+| Execute testes frequentemente | Evita bugs            |
+| Utilize table tests           | Organização           |
 
 ---
 
-# Testes em aplicações reais
+## Testes em aplicações reais
 
 Testes são usados em:
 
-- APIs;
-- microsserviços;
-- bancos de dados;
-- autenticação;
-- regras de negócio;
-- sistemas web.
+* APIs;
+* microsserviços;
+* bancos de dados;
+* autenticação;
+* regras de negócio;
+* sistemas web.
 
 ---
 
-# Integração Contínua (CI)
+## Integração Contínua (CI)
 
 Em projetos profissionais, os testes geralmente executam automaticamente em pipelines CI/CD.
 
 Exemplo:
 
-- GitHub Actions;
-- GitLab CI;
-- Jenkins.
+* GitHub Actions;
+* GitLab CI;
+* Jenkins.
 
 ---
 
-# Fluxo comum de desenvolvimento
+## Fluxo comum de desenvolvimento
 
-## 1. Criar funcionalidade
+### 1. Criar funcionalidade
 
 ```go
 func Soma(a, b int) int {
@@ -539,7 +539,7 @@ func Soma(a, b int) int {
 
 ---
 
-## 2. Criar teste
+### 2. Criar teste
 
 ```go
 func TestSoma(t *testing.T)
@@ -547,7 +547,7 @@ func TestSoma(t *testing.T)
 
 ---
 
-## 3. Executar testes
+### 3. Executar testes
 
 ```bash
 go test
@@ -555,7 +555,7 @@ go test
 
 ---
 
-## 4. Verificar cobertura
+### 4. Verificar cobertura
 
 ```bash
 go test -cover
@@ -563,9 +563,9 @@ go test -cover
 
 ---
 
-# Problemas comuns
+## Problemas comuns
 
-## Nome incorreto do teste
+### Nome incorreto do teste
 
 Errado:
 
@@ -581,19 +581,19 @@ func TestSoma()
 
 ---
 
-## Arquivo sem `_test.go`
+### Arquivo sem `_test.go`
 
 O Go não reconhecerá o arquivo como teste.
 
 ---
 
-## Comparação incorreta
+### Comparação incorreta
 
 Resultados esperados precisam ser comparados corretamente.
 
 ---
 
-# IMPORTANTE
+## IMPORTANTE
 
 Arquivos de teste devem terminar obrigatoriamente com:
 
@@ -603,21 +603,21 @@ _test.go
 
 Caso contrário:
 
-- o Go ignorará o arquivo;
-- os testes não serão executados.
+* o Go ignorará o arquivo;
+* os testes não serão executados.
 
 ---
 
-# Conclusão
+## Conclusão
 
 Os testes automatizados são essenciais para criar aplicações confiáveis e profissionais em Go.
 
 Com o pacote `testing`, conseguimos:
 
-- validar funções;
-- automatizar verificações;
-- detectar erros rapidamente;
-- melhorar qualidade do software.
+* validar funções;
+* automatizar verificações;
+* detectar erros rapidamente;
+* melhorar qualidade do software.
 
 Testes são indispensáveis em qualquer projeto moderno.
 
@@ -625,10 +625,12 @@ Testes são indispensáveis em qualquer projeto moderno.
 
 !!! note "Importante"
 
-    Arquivos de teste devem terminar com:
-    
-    ```txt
-    _test.go
-    ```
-    
-    Isso permite que o Go reconheça automaticamente os testes do projeto.
+````
+Arquivos de teste devem terminar com:
+
+```txt
+_test.go
+```
+
+Isso permite que o Go reconheça automaticamente os testes do projeto.
+````
