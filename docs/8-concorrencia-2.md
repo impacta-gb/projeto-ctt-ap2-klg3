@@ -12,7 +12,7 @@ Ou seja, ao invés de várias goroutines acessarem a mesma variável diretamente
 
 ---
 
-# O que é uma Goroutine?
+## O que é uma Goroutine?
 
 Antes de entender channels, é importante lembrar o que são goroutines.
 
@@ -20,7 +20,7 @@ Uma **goroutine** é uma função executada de forma concorrente.
 
 ---
 
-## Exemplo
+### Exemplo
 
 ```go
 package main
@@ -40,13 +40,13 @@ func main() {
 
 ---
 
-## Explicação
+### Explicação
 
 * A palavra-chave `go` cria uma goroutine.
 * A função `mensagem()` executa separadamente da `main()`.
 * Ambas podem rodar ao mesmo tempo.
 
-### Problema
+#### Problema
 
 A `main()` pode terminar antes da goroutine executar.
 
@@ -54,7 +54,7 @@ A `main()` pode terminar antes da goroutine executar.
 
 ---
 
-# O que é um Channel?
+## O que é um Channel?
 
 Um channel é um canal de comunicação.
 
@@ -67,7 +67,7 @@ Ele serve para:
 
 ---
 
-## Criando um Channel
+### Criando um Channel
 
 ```go
 canal := make(chan string)
@@ -75,7 +75,7 @@ canal := make(chan string)
 
 ---
 
-## Explicação
+### Explicação
 
 * `make()` cria o channel.
 * `chan string` significa que ele transporta valores do tipo `string`.
@@ -90,7 +90,7 @@ chan float64
 
 ---
 
-## Exemplos
+### Exemplos
 
 ```go
 idade := make(chan int)
@@ -99,7 +99,7 @@ ativo := make(chan bool)
 
 ---
 
-# Enviando Dados para o Channel
+## Enviando Dados para o Channel
 
 ```go
 canal <- "Olá"
@@ -107,7 +107,7 @@ canal <- "Olá"
 
 ---
 
-## Explicação
+### Explicação
 
 O operador `<-` serve para enviar valores.
 
@@ -117,7 +117,7 @@ Nesse caso:
 
 ---
 
-# Recebendo Dados do Channel
+## Recebendo Dados do Channel
 
 ```go
 mensagem := <-canal
@@ -125,7 +125,7 @@ mensagem := <-canal
 
 ---
 
-## Explicação
+### Explicação
 
 Aqui o programa está:
 
@@ -135,7 +135,7 @@ Aqui o programa está:
 
 ---
 
-# Exemplo Completo
+## Exemplo Completo
 
 ```go
 package main
@@ -157,9 +157,9 @@ func main() {
 
 ---
 
-# Explicação Detalhada do Exemplo
+## Explicação Detalhada do Exemplo
 
-## 1. Criando o Channel
+### 1. Criando o Channel
 
 ```go
 canal := make(chan string)
@@ -169,7 +169,7 @@ Foi criado um channel que transporta textos (`string`).
 
 ---
 
-## 2. Criando uma Goroutine
+### 2. Criando uma Goroutine
 
 ```go
 go func() {
@@ -184,7 +184,7 @@ Aqui:
 
 ---
 
-## 3. Recebendo o Valor
+### 3. Recebendo o Valor
 
 ```go
 msg := <-canal
@@ -202,7 +202,7 @@ ela continua a execução.
 
 ---
 
-## 4. Exibindo o Resultado
+### 4. Exibindo o Resultado
 
 ```go
 fmt.Println(msg)
@@ -210,15 +210,15 @@ fmt.Println(msg)
 
 ---
 
-### Saída
+#### Saída
 
-```go
+```txt
 Olá Go
 ```
 
 ---
 
-# Comunicação Bloqueante
+## Comunicação Bloqueante
 
 Channels são bloqueantes por padrão.
 
@@ -229,7 +229,7 @@ Isso significa:
 
 ---
 
-## Exemplo
+### Exemplo
 
 ```go
 package main
@@ -247,17 +247,17 @@ func main() {
 
 ---
 
-## O que acontece?
+### O que acontece?
 
 Esse código gera erro:
 
-```go
+```txt
 fatal error: all goroutines are asleep - deadlock!
 ```
 
 ---
 
-# O que é Deadlock?
+## O que é Deadlock?
 
 Deadlock acontece quando:
 
@@ -266,7 +266,7 @@ Deadlock acontece quando:
 
 ---
 
-## No exemplo anterior
+### No exemplo anterior
 
 * o programa tentou enviar dados;
 * mas ninguém estava recebendo.
@@ -275,7 +275,7 @@ Então o programa trava.
 
 ---
 
-# Corrigindo o Deadlock
+## Corrigindo o Deadlock
 
 ```go
 package main
@@ -295,14 +295,14 @@ func main() {
 
 ---
 
-## Agora funciona porque:
+### Agora funciona porque:
 
 * uma goroutine envia;
 * a main recebe.
 
 ---
 
-# Channels com Inteiros
+## Channels com Inteiros
 
 ```go
 package main
@@ -324,15 +324,15 @@ func main() {
 
 ---
 
-## Saída
+### Saída
 
-```go
+```txt
 10
 ```
 
 ---
 
-# Channels com Funções
+## Channels com Funções
 
 ```go
 package main
@@ -356,7 +356,7 @@ func main() {
 
 ---
 
-## Explicação
+### Explicação
 
 A função:
 
@@ -377,7 +377,7 @@ resultado <- a + b
 
 ---
 
-# Channels Bidirecionais
+## Channels Bidirecionais
 
 Um channel normal consegue:
 
@@ -386,7 +386,7 @@ Um channel normal consegue:
 
 ---
 
-## Exemplo
+### Exemplo
 
 ```go
 chan int
@@ -394,7 +394,7 @@ chan int
 
 ---
 
-# Channels Somente Envio
+## Channels Somente Envio
 
 ```go
 chan<- int
@@ -402,7 +402,7 @@ chan<- int
 
 ---
 
-## Exemplo
+### Exemplo
 
 ```go
 func enviar(canal chan<- int) {
@@ -416,7 +416,7 @@ Ela não consegue receber.
 
 ---
 
-# Channels Somente Recebimento
+## Channels Somente Recebimento
 
 ```go
 <-chan int
@@ -424,7 +424,7 @@ Ela não consegue receber.
 
 ---
 
-## Exemplo
+### Exemplo
 
 ```go
 func receber(canal <-chan int) {
@@ -438,7 +438,7 @@ Essa função apenas recebe dados.
 
 ---
 
-# Buffered Channels
+## Buffered Channels
 
 Channels normais armazenam apenas quando existe alguém recebendo.
 
@@ -446,7 +446,7 @@ Já os buffered channels possuem um buffer.
 
 ---
 
-## Criando Buffered Channel
+### Criando Buffered Channel
 
 ```go
 canal := make(chan int, 3)
@@ -458,7 +458,7 @@ O número `3` significa:
 
 ---
 
-## Exemplo Buffered Channel
+### Exemplo Buffered Channel
 
 ```go
 package main
@@ -480,9 +480,9 @@ func main() {
 
 ---
 
-## Saída
+### Saída
 
-```go
+```txt
 1
 2
 3
@@ -490,7 +490,7 @@ func main() {
 
 ---
 
-## Vantagem do Buffered Channel
+### Vantagem do Buffered Channel
 
 Permite:
 
@@ -500,7 +500,7 @@ Permite:
 
 ---
 
-# Fechando Channels
+## Fechando Channels
 
 ```go
 close(canal)
@@ -508,7 +508,7 @@ close(canal)
 
 ---
 
-## Exemplo
+### Exemplo
 
 ```go
 package main
@@ -531,7 +531,7 @@ func main() {
 
 ---
 
-# Por que Fechar um Channel?
+## Por que Fechar um Channel?
 
 Fechar channels informa:
 
@@ -545,13 +545,13 @@ Muito usado em:
 
 ---
 
-# Range em Channels
+## Range em Channels
 
 O `range` consegue percorrer valores de um channel.
 
 ---
 
-## Exemplo
+### Exemplo
 
 ```go
 package main
@@ -577,9 +577,9 @@ func main() {
 
 ---
 
-## Saída
+### Saída
 
-```go
+```txt
 1
 2
 3
@@ -589,7 +589,7 @@ func main() {
 
 ---
 
-## Explicação
+### Explicação
 
 Enquanto o channel estiver aberto:
 
@@ -609,7 +609,7 @@ close(canal)
 
 ---
 
-# Select
+## Select
 
 O `select` permite esperar múltiplos channels.
 
@@ -617,7 +617,7 @@ O `select` permite esperar múltiplos channels.
 
 ---
 
-## Exemplo com Select
+### Exemplo com Select
 
 ```go
 package main
@@ -648,7 +648,7 @@ func main() {
 
 ---
 
-# Explicação do Select
+### Explicação do Select
 
 O `select`:
 
@@ -664,7 +664,7 @@ Muito usado em:
 
 ---
 
-# Default no Select
+## Default no Select
 
 ```go
 select {
@@ -678,7 +678,7 @@ default:
 
 ---
 
-## Explicação
+### Explicação
 
 Se nenhum channel estiver pronto:
 
@@ -686,79 +686,75 @@ Se nenhum channel estiver pronto:
 
 ---
 
-# Concorrência vs Paralelismo
+## Concorrência vs Paralelismo
 
-## Concorrência
+### Concorrência
 
 É lidar com várias tarefas ao mesmo tempo.
 
----
-
-### Exemplo
+#### Exemplo
 
 * alternar entre várias tarefas rapidamente.
 
 ---
 
-## Paralelismo
+### Paralelismo
 
 É executar várias tarefas literalmente ao mesmo tempo.
 
----
-
-### Exemplo
+#### Exemplo
 
 * múltiplos núcleos do processador trabalhando simultaneamente.
 
 ---
 
-# Vantagens dos Channels
+## Vantagens dos Channels
 
-## Segurança
+### Segurança
 
 Evita problemas de acesso simultâneo à memória.
 
 ---
 
-## Simplicidade
+### Simplicidade
 
 Facilita comunicação entre goroutines.
 
 ---
 
-## Organização
+### Organização
 
 Melhora arquitetura concorrente.
 
 ---
 
-## Performance
+### Performance
 
 Permite processamento concorrente eficiente.
 
 ---
 
-# Desvantagens dos Channels
+## Desvantagens dos Channels
 
-## Deadlocks
+### Deadlocks
 
 Se usados incorretamente podem travar o programa.
 
 ---
 
-## Complexidade
+### Complexidade
 
 Sistemas concorrentes podem ficar difíceis de entender.
 
 ---
 
-## Debug Difícil
+### Debug Difícil
 
 Bugs concorrentes costumam ser difíceis de identificar.
 
 ---
 
-# Casos Reais de Uso
+## Casos Reais de Uso
 
 Channels são muito usados em:
 
@@ -773,7 +769,7 @@ Channels são muito usados em:
 
 ---
 
-# Exemplo Real: Worker Simples
+## Exemplo Real: Worker Simples
 
 ```go
 package main
@@ -802,7 +798,7 @@ func main() {
 
 ---
 
-# Explicação do Worker
+### Explicação do Worker
 
 Os workers:
 
@@ -818,21 +814,21 @@ Isso é muito usado em:
 
 ---
 
-# Resumo Geral
+## Resumo Geral
 
-## Channels
+### Channels
 
 Servem para comunicação entre goroutines.
 
 ---
 
-## Goroutines
+### Goroutines
 
 Executam funções concorrentemente.
 
 ---
 
-## Operador `<-`
+### Operador `<-`
 
 Usado para:
 
@@ -841,25 +837,25 @@ Usado para:
 
 ---
 
-## Buffered Channels
+### Buffered Channels
 
 Possuem armazenamento interno.
 
 ---
 
-## Select
+### Select
 
 Espera múltiplos channels.
 
 ---
 
-## Close
+### Close
 
 Fecha o channel.
 
 ---
 
-# Conclusão
+## Conclusão
 
 Os channels são uma das funcionalidades mais importantes da linguagem Go.
 
