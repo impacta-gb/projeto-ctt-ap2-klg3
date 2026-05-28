@@ -18,7 +18,9 @@ Antes de entender channels, é importante lembrar o que são goroutines.
 
 Uma **goroutine** é uma função executada de forma concorrente.
 
-Exemplo:
+---
+
+## Exemplo
 
 ```go
 package main
@@ -36,13 +38,15 @@ func main() {
 }
 ```
 
+---
+
 ## Explicação
 
 * A palavra-chave `go` cria uma goroutine.
 * A função `mensagem()` executa separadamente da `main()`.
 * Ambas podem rodar ao mesmo tempo.
 
-Problema:
+### Problema
 
 A `main()` pode terminar antes da goroutine executar.
 
@@ -63,11 +67,13 @@ Ele serve para:
 
 ---
 
-# Criando um Channel
+## Criando um Channel
 
 ```go
 canal := make(chan string)
 ```
+
+---
 
 ## Explicação
 
@@ -82,7 +88,9 @@ chan bool
 chan float64
 ```
 
-Exemplos:
+---
+
+## Exemplos
 
 ```go
 idade := make(chan int)
@@ -96,6 +104,8 @@ ativo := make(chan bool)
 ```go
 canal <- "Olá"
 ```
+
+---
 
 ## Explicação
 
@@ -112,6 +122,8 @@ Nesse caso:
 ```go
 mensagem := <-canal
 ```
+
+---
 
 ## Explicação
 
@@ -196,7 +208,9 @@ ela continua a execução.
 fmt.Println(msg)
 ```
 
-Saída:
+---
+
+### Saída
 
 ```go
 Olá Go
@@ -213,7 +227,9 @@ Isso significa:
 * ao enviar dados, a goroutine espera alguém receber;
 * ao receber dados, a goroutine espera alguém enviar.
 
-Exemplo:
+---
+
+## Exemplo
 
 ```go
 package main
@@ -228,6 +244,8 @@ func main() {
     fmt.Println(<-canal)
 }
 ```
+
+---
 
 ## O que acontece?
 
@@ -246,7 +264,9 @@ Deadlock acontece quando:
 * uma goroutine fica esperando outra;
 * mas nenhuma consegue continuar.
 
-No exemplo anterior:
+---
+
+## No exemplo anterior
 
 * o programa tentou enviar dados;
 * mas ninguém estava recebendo.
@@ -273,7 +293,9 @@ func main() {
 }
 ```
 
-Agora funciona porque:
+---
+
+## Agora funciona porque:
 
 * uma goroutine envia;
 * a main recebe.
@@ -300,7 +322,9 @@ func main() {
 }
 ```
 
-Saída:
+---
+
+## Saída
 
 ```go
 10
@@ -330,6 +354,8 @@ func main() {
 }
 ```
 
+---
+
 ## Explicação
 
 A função:
@@ -358,7 +384,9 @@ Um channel normal consegue:
 * enviar;
 * receber.
 
-Exemplo:
+---
+
+## Exemplo
 
 ```go
 chan int
@@ -372,7 +400,9 @@ chan int
 chan<- int
 ```
 
-Exemplo:
+---
+
+## Exemplo
 
 ```go
 func enviar(canal chan<- int) {
@@ -392,7 +422,9 @@ Ela não consegue receber.
 <-chan int
 ```
 
-Exemplo:
+---
+
+## Exemplo
 
 ```go
 func receber(canal <-chan int) {
@@ -414,7 +446,7 @@ Já os buffered channels possuem um buffer.
 
 ---
 
-# Criando Buffered Channel
+## Criando Buffered Channel
 
 ```go
 canal := make(chan int, 3)
@@ -426,7 +458,7 @@ O número `3` significa:
 
 ---
 
-# Exemplo Buffered Channel
+## Exemplo Buffered Channel
 
 ```go
 package main
@@ -446,7 +478,9 @@ func main() {
 }
 ```
 
-Saída:
+---
+
+## Saída
 
 ```go
 1
@@ -456,7 +490,7 @@ Saída:
 
 ---
 
-# Vantagem do Buffered Channel
+## Vantagem do Buffered Channel
 
 Permite:
 
@@ -471,6 +505,8 @@ Permite:
 ```go
 close(canal)
 ```
+
+---
 
 ## Exemplo
 
@@ -513,7 +549,9 @@ Muito usado em:
 
 O `range` consegue percorrer valores de um channel.
 
-Exemplo:
+---
+
+## Exemplo
 
 ```go
 package main
@@ -537,7 +575,9 @@ func main() {
 }
 ```
 
-Saída:
+---
+
+## Saída
 
 ```go
 1
@@ -549,7 +589,7 @@ Saída:
 
 ---
 
-# Explicação
+## Explicação
 
 Enquanto o channel estiver aberto:
 
@@ -577,7 +617,7 @@ O `select` permite esperar múltiplos channels.
 
 ---
 
-# Exemplo com Select
+## Exemplo com Select
 
 ```go
 package main
@@ -636,6 +676,8 @@ default:
 }
 ```
 
+---
+
 ## Explicação
 
 Se nenhum channel estiver pronto:
@@ -650,7 +692,9 @@ Se nenhum channel estiver pronto:
 
 É lidar com várias tarefas ao mesmo tempo.
 
-Exemplo:
+---
+
+### Exemplo
 
 * alternar entre várias tarefas rapidamente.
 
@@ -660,7 +704,9 @@ Exemplo:
 
 É executar várias tarefas literalmente ao mesmo tempo.
 
-Exemplo:
+---
+
+### Exemplo
 
 * múltiplos núcleos do processador trabalhando simultaneamente.
 
