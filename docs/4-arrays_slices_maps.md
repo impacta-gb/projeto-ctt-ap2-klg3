@@ -888,15 +888,15 @@ map[Ana:20 Carlos:25]
 
 ---
 
-# 💡 Dica 
+!!! note "Dica"
 
-> Em projetos reais Go, arrays são pouco utilizados diretamente.
->
-> As estruturas mais usadas no dia a dia são:
->
-> - Slices
-> - Maps
->
-> Elas oferecem mais flexibilidade, desempenho e facilidade de manutenção.
+    Em projetos reais Go, arrays são pouco utilizados diretamente.
+    
+    As estruturas mais usadas no dia a dia são:
+    
+    - Slices
+    - Maps
+    
+    Elas oferecem mais flexibilidade, desempenho e facilidade de manutenção.
+    
 
----
