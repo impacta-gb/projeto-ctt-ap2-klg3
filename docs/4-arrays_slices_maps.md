@@ -4,21 +4,21 @@ Ao desenvolver programas, muitas vezes precisamos armazenar vários valores.
 
 Exemplo:
 
-- Lista de usuários
-- Produtos de um sistema
-- Idades de pessoas
-- Notas de alunos
-- Dados vindos de APIs
+* Lista de usuários
+* Produtos de um sistema
+* Idades de pessoas
+* Notas de alunos
+* Dados vindos de APIs
 
 Para isso, Go fornece estruturas de dados específicas.
 
 As principais são:
 
-| Estrutura | Função |
-|---|---|
-| Array | Armazena vários valores com tamanho fixo |
-| Slice | Lista dinâmica baseada em arrays |
-| Map | Estrutura chave e valor |
+| Estrutura | Função                                   |
+| --------- | ---------------------------------------- |
+| Array     | Armazena vários valores com tamanho fixo |
+| Slice     | Lista dinâmica baseada em arrays         |
+| Map       | Estrutura chave e valor                  |
 
 ---
 
@@ -28,11 +28,11 @@ Estruturas de dados são formas de organizar informações na memória.
 
 Elas ajudam em:
 
-- Performance
-- Organização
-- Manipulação de dados
-- Busca de informações
-- Escalabilidade
+* Performance
+* Organização
+* Manipulação de dados
+* Busca de informações
+* Escalabilidade
 
 ---
 
@@ -44,7 +44,7 @@ O tamanho do array é definido no momento da criação e NÃO pode ser alterado 
 
 ---
 
-# Exemplo Básico
+### Exemplo Básico
 
 ```go
 var numeros [3]int
@@ -52,14 +52,14 @@ var numeros [3]int
 
 ---
 
-# Explicação Detalhada
+### Explicação Detalhada
 
-| Parte | Função |
-|---|---|
-| `var` | Declara uma variável |
-| `numeros` | Nome do array |
-| `[3]` | Quantidade de posições |
-| `int` | Tipo dos valores armazenados |
+| Parte     | Função                       |
+| --------- | ---------------------------- |
+| `var`     | Declara uma variável         |
+| `numeros` | Nome do array                |
+| `[3]`     | Quantidade de posições       |
+| `int`     | Tipo dos valores armazenados |
 
 ---
 
@@ -81,7 +81,7 @@ Porque o valor padrão (`zero value`) do tipo `int` é `0`.
 
 ---
 
-# Índices do Array
+### Índices do Array
 
 Arrays utilizam índices numéricos.
 
@@ -89,17 +89,17 @@ O primeiro índice sempre começa em `0`.
 
 ---
 
-# Exemplo visual
+### Exemplo visual
 
-| Índice | Valor |
-|---|---|
-| `0` | Primeiro elemento |
-| `1` | Segundo elemento |
-| `2` | Terceiro elemento |
+| Índice | Valor             |
+| ------ | ----------------- |
+| `0`    | Primeiro elemento |
+| `1`    | Segundo elemento  |
+| `2`    | Terceiro elemento |
 
 ---
 
-# Atribuindo valores
+### Atribuindo valores
 
 ```go
 var numeros [3]int
@@ -111,17 +111,17 @@ numeros[2] = 30
 
 ---
 
-# Resultado na memória
+### Resultado na memória
 
 | Índice | Valor |
-|---|---|
-| `0` | `10` |
-| `1` | `20` |
-| `2` | `30` |
+| ------ | ----- |
+| `0`    | `10`  |
+| `1`    | `20`  |
+| `2`    | `30`  |
 
 ---
 
-# Acessando valores
+### Acessando valores
 
 ```go
 fmt.Println(numeros[0])
@@ -129,7 +129,7 @@ fmt.Println(numeros[0])
 
 ---
 
-# Saída
+### Saída
 
 ```txt
 10
@@ -137,7 +137,7 @@ fmt.Println(numeros[0])
 
 ---
 
-# O que acontece aqui?
+### O que acontece aqui?
 
 ```go
 numeros[0]
@@ -149,11 +149,9 @@ Significa:
 
 ---
 
-# Cuidado com índices inválidos
+### Cuidado com índices inválidos
 
----
-
-# ❌ Errado
+#### ❌ Errado
 
 ```go
 fmt.Println(numeros[10])
@@ -161,7 +159,7 @@ fmt.Println(numeros[10])
 
 ---
 
-# 🔥 Erro
+#### 🔥 Erro
 
 ```txt
 panic: runtime error
@@ -169,7 +167,7 @@ panic: runtime error
 
 ---
 
-# Porque acontece?
+### Porque acontece?
 
 O array possui apenas:
 
@@ -181,13 +179,13 @@ Não existe posição `10`.
 
 ---
 
-# Inicialização Direta
+### Inicialização Direta
 
 Podemos criar arrays já preenchidos.
 
 ---
 
-# Exemplo
+### Exemplo
 
 ```go
 numeros := [3]int{10, 20, 30}
@@ -195,23 +193,23 @@ numeros := [3]int{10, 20, 30}
 
 ---
 
-# Explicação
+### Explicação
 
-| Parte | Função |
-|---|---|
-| `[3]` | Quantidade de elementos |
-| `int` | Tipo dos elementos |
-| `{10,20,30}` | Valores iniciais |
+| Parte        | Função                  |
+| ------------ | ----------------------- |
+| `[3]`        | Quantidade de elementos |
+| `int`        | Tipo dos elementos      |
+| `{10,20,30}` | Valores iniciais        |
 
 ---
 
-# Inferência de Tamanho
+### Inferência de Tamanho
 
 Go consegue descobrir o tamanho automaticamente.
 
 ---
 
-# Exemplo
+### Exemplo
 
 ```go
 numeros := [...]int{1,2,3,4}
@@ -219,7 +217,7 @@ numeros := [...]int{1,2,3,4}
 
 ---
 
-# O Go entende como:
+### O Go entende como:
 
 ```go
 [4]int
@@ -227,13 +225,13 @@ numeros := [...]int{1,2,3,4}
 
 ---
 
-# Obtendo tamanho do Array
+### Obtendo tamanho do Array
 
 Usamos `len()`.
 
 ---
 
-# Exemplo
+### Exemplo
 
 ```go
 numeros := [3]int{10,20,30}
@@ -243,7 +241,7 @@ fmt.Println(len(numeros))
 
 ---
 
-# Saída
+### Saída
 
 ```txt
 3
@@ -251,16 +249,16 @@ fmt.Println(len(numeros))
 
 ---
 
-# Arrays possuem tamanho fixo
+### Arrays possuem tamanho fixo
 
 Depois de criado:
 
-❌ NÃO pode aumentar  
+❌ NÃO pode aumentar
 ❌ NÃO pode diminuir
 
 ---
 
-# Exemplo
+### Exemplo
 
 ```go
 numeros := [3]int{1,2,3}
@@ -270,13 +268,13 @@ Esse array SEMPRE terá 3 posições.
 
 ---
 
-# Arrays são copiados
+### Arrays são copiados
 
 Arrays em Go trabalham por valor.
 
 ---
 
-# Exemplo
+### Exemplo
 
 ```go
 a := [3]int{1,2,3}
@@ -291,7 +289,7 @@ fmt.Println(b)
 
 ---
 
-# Saída
+### Saída
 
 ```txt
 [1 2 3]
@@ -300,7 +298,7 @@ fmt.Println(b)
 
 ---
 
-# O que aconteceu?
+### O que aconteceu?
 
 Quando fazemos:
 
@@ -312,16 +310,14 @@ O Go cria uma cópia completa do array.
 
 Ou seja:
 
-- `a` continua igual
-- `b` é independente
+* `a` continua igual
+* `b` é independente
 
 ---
 
-# Percorrendo Arrays
+### Percorrendo Arrays
 
----
-
-# Usando `for`
+#### Usando `for`
 
 ```go
 numeros := [3]int{10,20,30}
@@ -333,17 +329,17 @@ for i := 0; i < len(numeros); i++ {
 
 ---
 
-# Explicação
+### Explicação
 
-| Parte | Função |
-|---|---|
-| `i := 0` | começa no índice 0 |
+| Parte       | Função               |
+| ----------- | -------------------- |
+| `i := 0`    | começa no índice 0   |
 | `i < len()` | percorre até o final |
-| `i++` | aumenta o índice |
+| `i++`       | aumenta o índice     |
 
 ---
 
-# Usando `range`
+#### Usando `range`
 
 ```go
 numeros := [3]int{10,20,30}
@@ -355,7 +351,7 @@ for indice, valor := range numeros {
 
 ---
 
-# Saída
+### Saída
 
 ```txt
 0 10
@@ -365,14 +361,14 @@ for indice, valor := range numeros {
 
 ---
 
-# O que o `range` faz?
+### O que o `range` faz?
 
 O `range` percorre automaticamente estruturas como:
 
-- Arrays
-- Slices
-- Maps
-- Strings
+* Arrays
+* Slices
+* Maps
+* Strings
 
 ---
 
@@ -390,15 +386,15 @@ Na prática:
 
 Arrays possuem limitações:
 
-- Tamanho fixo
-- Pouca flexibilidade
-- Difíceis de manipular
+* Tamanho fixo
+* Pouca flexibilidade
+* Difíceis de manipular
 
 Slices resolvem isso.
 
 ---
 
-# Exemplo Básico
+### Exemplo Básico
 
 ```go
 nomes := []string{"Ana", "Carlos", "Maria"}
@@ -406,34 +402,34 @@ nomes := []string{"Ana", "Carlos", "Maria"}
 
 ---
 
-# Explicação
+### Explicação
 
-| Parte | Significado |
-|---|---|
-| `[]string` | Slice de strings |
-| `{}` | Valores armazenados |
+| Parte      | Significado         |
+| ---------- | ------------------- |
+| `[]string` | Slice de strings    |
+| `{}`       | Valores armazenados |
 
 ---
 
-# Estrutura interna do Slice
+### Estrutura interna do Slice
 
 Internamente um slice possui:
 
-| Campo | Função |
-|---|---|
-| Pointer | Aponta para array |
-| Length | Quantidade atual |
+| Campo    | Função            |
+| -------- | ----------------- |
+| Pointer  | Aponta para array |
+| Length   | Quantidade atual  |
 | Capacity | Capacidade máxima |
 
 ---
 
-# Comprimento do Slice
+### Comprimento do Slice
 
 Usamos `len()`.
 
 ---
 
-# Exemplo
+### Exemplo
 
 ```go
 nomes := []string{"Ana", "Carlos"}
@@ -443,7 +439,7 @@ fmt.Println(len(nomes))
 
 ---
 
-# Saída
+### Saída
 
 ```txt
 2
@@ -451,13 +447,13 @@ fmt.Println(len(nomes))
 
 ---
 
-# Capacidade do Slice
+### Capacidade do Slice
 
 Usamos `cap()`.
 
 ---
 
-# Exemplo
+### Exemplo
 
 ```go
 fmt.Println(cap(nomes))
@@ -465,13 +461,13 @@ fmt.Println(cap(nomes))
 
 ---
 
-# Adicionando elementos
+### Adicionando elementos
 
 Usamos `append()`.
 
 ---
 
-# Exemplo
+### Exemplo
 
 ```go
 nomes := []string{"Ana"}
@@ -481,7 +477,7 @@ nomes = append(nomes, "Carlos")
 
 ---
 
-# Resultado
+### Resultado
 
 ```txt
 [Ana Carlos]
@@ -489,7 +485,7 @@ nomes = append(nomes, "Carlos")
 
 ---
 
-# O que o append faz?
+### O que o append faz?
 
 Quando necessário:
 
@@ -500,13 +496,13 @@ Quando necessário:
 
 ---
 
-# Slice compartilhando memória
+### Slice compartilhando memória
 
 Slices apontam para arrays.
 
 ---
 
-# Exemplo
+### Exemplo
 
 ```go
 numeros := [5]int{1,2,3,4,5}
@@ -518,7 +514,7 @@ fmt.Println(slice)
 
 ---
 
-# Resultado
+### Resultado
 
 ```txt
 [2 3 4]
@@ -526,7 +522,7 @@ fmt.Println(slice)
 
 ---
 
-# Explicação do corte
+### Explicação do corte
 
 ```go
 [1:4]
@@ -534,18 +530,16 @@ fmt.Println(slice)
 
 Significa:
 
-| Parte | Função |
-|---|---|
-| `1` | índice inicial |
-| `4` | índice final (não incluso) |
+| Parte | Função                     |
+| ----- | -------------------------- |
+| `1`   | índice inicial             |
+| `4`   | índice final (não incluso) |
 
 ---
 
-# Alterando slice altera array
+### Alterando slice altera array
 
----
-
-# Exemplo
+#### Exemplo
 
 ```go
 numeros := [3]int{1,2,3}
@@ -559,7 +553,7 @@ fmt.Println(numeros)
 
 ---
 
-# Saída
+### Saída
 
 ```txt
 [100 2 3]
@@ -567,17 +561,15 @@ fmt.Println(numeros)
 
 ---
 
-# Importante
+### Importante
 
 Slices compartilham memória com arrays.
 
 ---
 
-# Iterando Slices
+### Iterando Slices
 
----
-
-# Exemplo
+#### Exemplo
 
 ```go
 nomes := []string{"Ana", "Carlos", "Maria"}
@@ -599,13 +591,13 @@ chave -> valor
 
 Muito parecido com:
 
-- Objetos JavaScript
-- Dicionários Python
-- HashMaps Java
+* Objetos JavaScript
+* Dicionários Python
+* HashMaps Java
 
 ---
 
-# Exemplo visual
+### Exemplo visual
 
 ```txt
 "Ana" -> 20
@@ -614,7 +606,7 @@ Muito parecido com:
 
 ---
 
-# Exemplo Básico
+### Exemplo Básico
 
 ```go
 idades := map[string]int{
@@ -625,21 +617,19 @@ idades := map[string]int{
 
 ---
 
-# Explicação
+### Explicação
 
-| Parte | Significado |
-|---|---|
-| `map` | Estrutura map |
+| Parte    | Significado   |
+| -------- | ------------- |
+| `map`    | Estrutura map |
 | `string` | Tipo da chave |
-| `int` | Tipo do valor |
+| `int`    | Tipo do valor |
 
 ---
 
-# Acessando valores
+### Acessando valores
 
----
-
-# Exemplo
+#### Exemplo
 
 ```go
 fmt.Println(idades["Ana"])
@@ -647,7 +637,7 @@ fmt.Println(idades["Ana"])
 
 ---
 
-# Saída
+### Saída
 
 ```txt
 20
@@ -655,11 +645,9 @@ fmt.Println(idades["Ana"])
 
 ---
 
-# Adicionando valores
+### Adicionando valores
 
----
-
-# Exemplo
+#### Exemplo
 
 ```go
 idades["Maria"] = 30
@@ -667,11 +655,9 @@ idades["Maria"] = 30
 
 ---
 
-# Alterando valores
+### Alterando valores
 
----
-
-# Exemplo
+#### Exemplo
 
 ```go
 idades["Ana"] = 50
@@ -679,13 +665,13 @@ idades["Ana"] = 50
 
 ---
 
-# Removendo valores
+### Removendo valores
 
 Usamos `delete()`.
 
 ---
 
-# Exemplo
+### Exemplo
 
 ```go
 delete(idades, "Carlos")
@@ -693,11 +679,9 @@ delete(idades, "Carlos")
 
 ---
 
-# Verificando se chave existe
+### Verificando se chave existe
 
----
-
-# Exemplo
+#### Exemplo
 
 ```go
 idade, existe := idades["Ana"]
@@ -708,7 +692,7 @@ fmt.Println(existe)
 
 ---
 
-# Saída
+### Saída
 
 ```txt
 20
@@ -717,16 +701,16 @@ true
 
 ---
 
-# Explicação
+### Explicação
 
-| Variável | Função |
-|---|---|
-| `idade` | Valor encontrado |
+| Variável | Função                     |
+| -------- | -------------------------- |
+| `idade`  | Valor encontrado           |
 | `existe` | Verifica se a chave existe |
 
 ---
 
-# E se não existir?
+### E se não existir?
 
 ```go
 idade, existe := idades["Pedro"]
@@ -734,7 +718,7 @@ idade, existe := idades["Pedro"]
 
 ---
 
-# Resultado
+### Resultado
 
 ```txt
 0
@@ -743,20 +727,18 @@ false
 
 ---
 
-# Importante
+### Importante
 
 O map retorna:
 
-- Valor zero do tipo
-- `false`
+* Valor zero do tipo
+* `false`
 
 ---
 
-# Percorrendo Maps
+### Percorrendo Maps
 
----
-
-# Exemplo
+#### Exemplo
 
 ```go
 for chave, valor := range idades {
@@ -766,7 +748,7 @@ for chave, valor := range idades {
 
 ---
 
-# Ordem dos maps
+### Ordem dos maps
 
 Maps NÃO possuem ordem fixa.
 
@@ -774,11 +756,9 @@ A ordem pode mudar em cada execução.
 
 ---
 
-# Criando maps com `make`
+### Criando maps com `make`
 
----
-
-# Exemplo
+#### Exemplo
 
 ```go
 idades := make(map[string]int)
@@ -786,29 +766,29 @@ idades := make(map[string]int)
 
 ---
 
-# Explicação
+### Explicação
 
 `make()` aloca memória para:
 
-- Maps
-- Slices
-- Channels
+* Maps
+* Slices
+* Channels
 
 ---
 
-# Diferença entre Array, Slice e Map
+## Diferença entre Array, Slice e Map
 
-| Característica | Array | Slice | Map |
-|---|---|---|---|
-| Tamanho fixo | ✅ | ❌ | ❌ |
-| Dinâmico | ❌ | ✅ | ✅ |
-| Índices numéricos | ✅ | ✅ | ❌ |
-| Chaves personalizadas | ❌ | ❌ | ✅ |
-| Muito usado | ❌ | ✅ | ✅ |
+| Característica        | Array | Slice | Map |
+| --------------------- | ----- | ----- | --- |
+| Tamanho fixo          | ✅     | ❌     | ❌   |
+| Dinâmico              | ❌     | ✅     | ✅   |
+| Índices numéricos     | ✅     | ✅     | ❌   |
+| Chaves personalizadas | ❌     | ❌     | ✅   |
+| Muito usado           | ❌     | ✅     | ✅   |
 
 ---
 
-# Exemplo Completo
+## Exemplo Completo
 
 ```go
 package main
@@ -858,7 +838,7 @@ func main() {
 
 ---
 
-# Saída Esperada
+## Saída Esperada
 
 ```txt
 [10 20 30]
@@ -876,27 +856,27 @@ map[Ana:20 Carlos:25]
 
 ---
 
-# Boas Práticas
+## Boas Práticas
 
-| Prática | Motivo |
-|---|---|
-| Prefira slices | Mais flexíveis |
+| Prática                      | Motivo             |
+| ---------------------------- | ------------------ |
+| Prefira slices               | Mais flexíveis     |
 | Use maps para buscas rápidas | Melhor performance |
-| Use `range` | Código mais limpo |
-| Evite arrays grandes | Pouco flexíveis |
-| Verifique existência em maps | Evita erros |
+| Use `range`                  | Código mais limpo  |
+| Evite arrays grandes         | Pouco flexíveis    |
+| Verifique existência em maps | Evita erros        |
 
 ---
 
 !!! note "Dica"
 
-    Em projetos reais Go, arrays são pouco utilizados diretamente.
-    
-    As estruturas mais usadas no dia a dia são:
-    
-    - Slices
-    - Maps
-    
-    Elas oferecem mais flexibilidade, desempenho e facilidade de manutenção.
-    
+```
+Em projetos reais Go, arrays são pouco utilizados diretamente.
 
+As estruturas mais usadas no dia a dia são:
+
+- Slices
+- Maps
+
+Elas oferecem mais flexibilidade, desempenho e facilidade de manutenção.
+```
