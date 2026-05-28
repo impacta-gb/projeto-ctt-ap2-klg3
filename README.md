@@ -55,11 +55,11 @@ projeto-ctt-go-docs/
 │
 ├── .github/
 │   └── workflows/
-│       ├── ci-cd.yml          # Pipeline principal (build + deploy)
-│       └── docs.yml           # Pipeline secundária (validação rápida)
+│       └── ci-cd.yml          
+│                  
 │
 ├── docs/
-│   ├── index.md               # Página inicial
+│   ├── index.md               
 │   ├── 01-introducao_instalacao.md
 │   ├── 02-sintaxe.md
 │   ├── 03-estruturas.md
@@ -70,11 +70,11 @@ projeto-ctt-go-docs/
 │   ├── 08-concorrencias-2.md
 │   ├── 09-gerenciamento-pacotes.md
 │   ├── 10-testes-automatizados.md
-│   └── markdown.md           # Guia de Markdown utilizado
+│   └── markdown.md           
 │
-├── requirements.txt           # Dependências Python (Zensical)
-├── zensical.toml              # Configuração do Zensical
-└── README.md                  # Este arquivo
+├── requirements.txt           
+├── zensical.toml              
+└── README.md                  
 ```
 
 ---
