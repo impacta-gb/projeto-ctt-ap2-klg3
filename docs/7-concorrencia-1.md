@@ -20,7 +20,7 @@ Concorrência é a capacidade de executar múltiplas tarefas ao mesmo tempo.
 
 ---
 
-# 📌 Exemplo do mundo real
+## Exemplo do mundo real
 
 Imagine um restaurante.
 
@@ -34,7 +34,7 @@ Tudo acontece simultaneamente.
 
 ---
 
-# 📌 Em programação
+## Em programação
 
 Concorrência permite:
 
@@ -45,7 +45,7 @@ Concorrência permite:
 
 ---
 
-# 📌 Diferença entre Concorrência e Paralelismo
+## Diferença entre Concorrência e Paralelismo
 
 | Conceito | Explicação |
 |---|---|
@@ -54,27 +54,27 @@ Concorrência permite:
 
 ---
 
-# 🔍 Exemplo simples
+## Exemplo simples
 
-## Concorrência
+### Concorrência
 
 Um único núcleo alterna rapidamente entre tarefas.
 
 ---
 
-## Paralelismo
+### Paralelismo
 
 Múltiplos núcleos executam tarefas simultaneamente.
 
 ---
 
-# 🚀 Goroutines
+# Goroutines
 
 Go utiliza Goroutines para concorrência.
 
 ---
 
-# 🧠 O que é uma Goroutine?
+## 🧠 O que é uma Goroutine?
 
 Uma Goroutine é uma função executada concorrentemente.
 
@@ -82,7 +82,7 @@ Ela é extremamente leve comparada a threads tradicionais.
 
 ---
 
-# 📌 Vantagens das Goroutines
+## Vantagens das Goroutines
 
 | Vantagem | Explicação |
 |---|---|
@@ -93,7 +93,7 @@ Ela é extremamente leve comparada a threads tradicionais.
 
 ---
 
-# 📌 Comparação com Threads
+## Comparação com Threads
 
 | Característica | Thread | Goroutine |
 |---|---|---|
@@ -104,11 +104,9 @@ Ela é extremamente leve comparada a threads tradicionais.
 
 ---
 
-# 📌 Sintaxe Básica
+## Sintaxe Básica
 
----
-
-# ✅ Exemplo do arquivo
+### Exemplo do arquivo
 
 ```go
 go minhaFuncao()
@@ -116,7 +114,7 @@ go minhaFuncao()
 
 ---
 
-# 🔍 Explicação
+### Explicação
 
 | Parte | Função |
 |---|---|
@@ -125,9 +123,9 @@ go minhaFuncao()
 
 ---
 
-# 📌 O que acontece?
+## O que acontece?
 
-Sem `go`:
+### Sem `go`
 
 ```go
 minhaFuncao()
@@ -137,7 +135,7 @@ A função executa normalmente.
 
 ---
 
-# 📌 Com `go`
+### Com `go`
 
 ```go
 go minhaFuncao()
@@ -149,7 +147,7 @@ O programa NÃO espera ela terminar automaticamente.
 
 ---
 
-# 🚀 Código Completo do Arquivo
+## Código Completo do Arquivo
 
 ```go
 package main
@@ -174,9 +172,7 @@ func main() {
 
 # 🔍 Explicação Completa
 
----
-
-# 📌 Importações
+## Importações
 
 ```go
 import (
@@ -187,13 +183,13 @@ import (
 
 ---
 
-# 🔍 Pacote `fmt`
+### Pacote `fmt`
 
 Usado para imprimir informações no terminal.
 
 ---
 
-# 🔍 Pacote `time`
+### Pacote `time`
 
 Usado para:
 
@@ -204,7 +200,7 @@ Usado para:
 
 ---
 
-# 📌 Função `tarefa`
+## Função `tarefa`
 
 ```go
 func tarefa() {
@@ -214,7 +210,7 @@ func tarefa() {
 
 ---
 
-# 🔍 O que ela faz?
+### O que ela faz?
 
 Apenas imprime:
 
@@ -224,7 +220,7 @@ Executando...
 
 ---
 
-# 📌 Criando Goroutine
+## Criando Goroutine
 
 ```go
 go tarefa()
@@ -232,7 +228,7 @@ go tarefa()
 
 ---
 
-# 🔍 O que acontece?
+### O que acontece?
 
 O Go cria uma nova Goroutine.
 
@@ -240,13 +236,13 @@ A função começa a executar em paralelo ao restante do programa.
 
 ---
 
-# 📌 Problema importante
+## Problema importante
 
 O `main()` pode terminar antes da Goroutine.
 
 ---
 
-# ⚠️ Exemplo sem `Sleep`
+### Exemplo sem `Sleep`
 
 ```go
 func main() {
@@ -256,19 +252,19 @@ func main() {
 
 ---
 
-# 🔍 Possível resultado
+### Possível resultado
 
 Nada será exibido.
 
 ---
 
-# 📌 Por quê?
+### Por quê?
 
 O programa termina antes da Goroutine executar.
 
 ---
 
-# 🚀 Solução utilizada no exemplo
+## Solução utilizada no exemplo
 
 ```go
 time.Sleep(time.Second)
@@ -276,7 +272,7 @@ time.Sleep(time.Second)
 
 ---
 
-# 🔍 Explicação
+### Explicação
 
 Faz o programa esperar:
 
@@ -288,7 +284,7 @@ Assim a Goroutine consegue executar.
 
 ---
 
-# 📌 O que é `time.Second`?
+## O que é `time.Second`?
 
 Representa:
 
@@ -298,7 +294,7 @@ Representa:
 
 ---
 
-# ✅ Outros exemplos
+## Outros exemplos
 
 ```go
 time.Millisecond
@@ -308,11 +304,9 @@ time.Hour
 
 ---
 
-# 🚀 Fluxo do Programa
+## Fluxo do Programa
 
----
-
-# 🔍 Fluxo visual
+### Fluxo visual
 
 ```txt
 main inicia
@@ -340,13 +334,13 @@ programa finaliza
 
 ---
 
-# 🚀 Executando múltiplas Goroutines
+## Executando múltiplas Goroutines
 
 Podemos criar várias.
 
 ---
 
-# ✅ Exemplo
+### Exemplo
 
 ```go
 package main
@@ -377,7 +371,7 @@ func main() {
 
 ---
 
-# 🔍 Possível saída
+### Possível saída
 
 ```txt
 Goroutine 1 1
@@ -388,31 +382,31 @@ Goroutine 2 2
 
 ---
 
-# 📌 O que aconteceu?
+## O que aconteceu?
 
 As duas funções executaram concorrentemente.
 
 ---
 
-# 📌 Ordem NÃO é garantida
+## Ordem NÃO é garantida
 
 A ordem pode mudar.
 
 ---
 
-# ⚠️ Importante
+## Importante
 
 Concorrência NÃO garante ordem de execução.
 
 ---
 
-# 🧠 Scheduler do Go
+## Scheduler do Go
 
 Go possui um scheduler interno.
 
 ---
 
-# 📌 O que ele faz?
+### O que ele faz?
 
 O scheduler decide:
 
@@ -422,17 +416,15 @@ O scheduler decide:
 
 ---
 
-# 📌 O desenvolvedor NÃO controla diretamente
+## O desenvolvedor NÃO controla diretamente
 
 O runtime Go gerencia automaticamente.
 
 ---
 
-# 🚀 Goroutines são extremamente leves
+## Goroutines são extremamente leves
 
----
-
-# 📌 Thread tradicional
+### Thread tradicional
 
 Consome geralmente:
 
@@ -442,7 +434,7 @@ Consome geralmente:
 
 ---
 
-# 📌 Goroutine
+### Goroutine
 
 Começa com aproximadamente:
 
@@ -452,7 +444,7 @@ Começa com aproximadamente:
 
 ---
 
-# 📌 Resultado
+### Resultado
 
 Go consegue executar:
 
@@ -464,7 +456,7 @@ de Goroutines.
 
 ---
 
-# 🚀 Exemplo criando várias Goroutines
+## Exemplo criando várias Goroutines
 
 ```go
 package main
@@ -485,13 +477,13 @@ func main() {
 
 ---
 
-# ⚠️ Problema desse código
+## Problema desse código
 
 O programa provavelmente finalizará antes.
 
 ---
 
-# 🚀 Solução simples
+## Solução simples
 
 ```go
 time.Sleep(time.Second)
@@ -499,13 +491,13 @@ time.Sleep(time.Second)
 
 ---
 
-# ⚠️ Mas NÃO é ideal
+## Mas NÃO é ideal
 
 `Sleep()` é apenas solução temporária.
 
 ---
 
-# 📌 Em aplicações reais usamos:
+## Em aplicações reais usamos:
 
 - WaitGroup
 - Channels
@@ -514,11 +506,9 @@ time.Sleep(time.Second)
 
 ---
 
-# 🚀 Funções anônimas com Goroutines
+## Funções anônimas com Goroutines
 
----
-
-# ✅ Exemplo
+### Exemplo
 
 ```go
 go func() {
@@ -528,7 +518,7 @@ go func() {
 
 ---
 
-# 🔍 Explicação
+### Explicação
 
 Criamos:
 
@@ -537,15 +527,13 @@ Criamos:
 
 ---
 
-# 📌 Muito usado em APIs e servidores
+## Muito usado em APIs e servidores
 
 ---
 
-# 🚀 Passando parâmetros
+## Passando parâmetros
 
----
-
-# ✅ Exemplo
+### Exemplo
 
 ```go
 go func(nome string) {
@@ -555,7 +543,7 @@ go func(nome string) {
 
 ---
 
-# 🔍 Saída
+### Saída
 
 ```txt
 Kassia
@@ -563,7 +551,7 @@ Kassia
 
 ---
 
-# 🚀 Concorrência em aplicações reais
+## Concorrência em aplicações reais
 
 Goroutines são utilizadas em:
 
@@ -578,7 +566,7 @@ Goroutines são utilizadas em:
 
 ---
 
-# 📌 Exemplo real
+## Exemplo real
 
 Servidor web atendendo múltiplos usuários simultaneamente.
 
@@ -586,19 +574,19 @@ Cada requisição pode rodar em uma Goroutine.
 
 ---
 
-# 🚀 Problemas comuns
+## Problemas comuns
 
 Concorrência pode gerar problemas.
 
 ---
 
-# ⚠️ Race Condition
+## Race Condition
 
 Acontece quando múltiplas Goroutines alteram os mesmos dados.
 
 ---
 
-# ❌ Exemplo perigoso
+### Exemplo perigoso
 
 ```go
 var contador int
@@ -610,41 +598,41 @@ func incrementar() {
 
 ---
 
-# 🔥 Problema
+### Problema
 
 Duas Goroutines podem alterar ao mesmo tempo.
 
 ---
 
-# 📌 Resultado
+### Resultado
 
 Valores incorretos.
 
 ---
 
-# 🚀 Deadlock
+## Deadlock
 
 Acontece quando Goroutines ficam esperando indefinidamente.
 
 ---
 
-# 📌 Muito comum com Channels
+## Muito comum com Channels
 
 ---
 
-# 🚀 Starvation
+## Starvation
 
 Uma Goroutine nunca recebe tempo suficiente de execução.
 
 ---
 
-# 🚀 Scheduler cooperativo
+## Scheduler cooperativo
 
 Go pausa Goroutines automaticamente para equilibrar execução.
 
 ---
 
-# 🚀 Runtime Go
+## Runtime Go
 
 O runtime gerencia:
 
@@ -655,7 +643,7 @@ O runtime gerencia:
 
 ---
 
-# 📌 Go facilita concorrência
+## Go facilita concorrência
 
 Outras linguagens geralmente exigem:
 
@@ -667,7 +655,7 @@ Go simplifica isso drasticamente.
 
 ---
 
-# 🚀 Exemplo Completo Profissional
+## Exemplo Completo Profissional
 
 ```go
 package main
@@ -705,7 +693,7 @@ func main() {
 
 ---
 
-# 🔍 Possível saída
+## Possível saída
 
 ```txt
 Iniciando programa
@@ -723,7 +711,7 @@ Programa finalizado
 
 ---
 
-# 📌 O que observar?
+## O que observar?
 
 As funções executam:
 
@@ -733,11 +721,9 @@ As funções executam:
 
 ---
 
-# 🚀 Quando usar Goroutines?
+## Quando usar Goroutines?
 
----
-
-# ✅ Use quando houver:
+### Use quando houver:
 
 - tarefas independentes,
 - operações demoradas,
@@ -748,7 +734,7 @@ As funções executam:
 
 ---
 
-# ❌ Evite quando:
+### Evite quando:
 
 - tarefa é simples,
 - não há ganho de performance,
@@ -756,7 +742,7 @@ As funções executam:
 
 ---
 
-# 📌 Concorrência ≠ Velocidade automática
+## Concorrência ≠ Velocidade automática
 
 Criar Goroutines sem necessidade pode:
 
@@ -766,7 +752,7 @@ Criar Goroutines sem necessidade pode:
 
 ---
 
-# 📌 Filosofia do Go
+## Filosofia do Go
 
 Go segue a filosofia:
 
@@ -775,7 +761,7 @@ Go segue a filosofia:
 
 ---
 
-# 🚀 Próximos conceitos importantes
+## Próximos conceitos importantes
 
 Após Goroutines normalmente estudamos:
 
@@ -787,7 +773,7 @@ Após Goroutines normalmente estudamos:
 
 ---
 
-# ✅ Boas Práticas
+## Boas Práticas
 
 | Prática | Motivo |
 |---|---|
@@ -799,7 +785,7 @@ Após Goroutines normalmente estudamos:
 
 ---
 
-# ⚠️ IMPORTANTE
+# IMPORTANTE
 
 > O programa pode finalizar antes da Goroutine terminar.
 
@@ -807,22 +793,20 @@ Esse é um dos erros mais comuns de iniciantes em Go.
 
 ---
 
-# 💡 Dica 
+!!! note "Dica"
 
-> Goroutines são uma das funcionalidades mais poderosas da linguagem Go.
->
-> Elas tornam a concorrência:
->
-> - simples,
-> - leve,
-> - eficiente,
-> - escalável.
->
-> Dominar Goroutines é essencial para desenvolver:
->
-> - APIs performáticas
-> - Sistemas concorrentes
-> - Microsserviços
-> - Aplicações modernas em Go.
-
----
+    Goroutines são uma das funcionalidades mais poderosas da linguagem Go.
+    
+    Elas tornam a concorrência:
+    
+    - simples,
+    - leve,
+    - eficiente,
+    - escalável.
+    
+    Dominar Goroutines é essencial para desenvolver:
+    
+    - APIs performáticas
+    - Sistemas concorrentes
+    - Microsserviços
+    - Aplicações modernas em Go.
