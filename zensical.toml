@@ -35,19 +35,20 @@ markdown_extensions = [
 nav = [
     { "Início" = "index.md" },
     { "Fundamentos" = [
-        { "Introdução e Instalação" = "introducao_instalacao.md" },
-        { "Sintaxe Básica e Variáveis" = "sintaxe.md" },
-        { "Estruturas de Controle" = "estruturas.md" }
+        { "Introdução e Instalação" = "01-introducao_instalacao.md" },
+        { "Sintaxe Básica e Variáveis" = "02-sintaxe.md" },
+        { "Estruturas de Controle" = "03-estruturas.md" }
     ]},
     { "Estruturas de Dados" = [
-        { "Arrays, Slices e Maps" = "arrays_slices_maps.md" },
-        { "Structs e Métodos" = "structs-metodos.md" }
+        { "Arrays, Slices e Maps" = "04-arrays_slices_maps.md" },
+        { "Structs e Métodos" = "05-structs-metodos.md" }
     ]},
-    { "Tratamento de Erros" = "tratamento-erros.md" },
+    { "Tratamento de Erros" = "06-tratamento-erros.md" },
     { "Concorrência" = [
-        { "Concorrência I: Goroutines" = "concorrencia-1.md" },
-        { "Concorrência II: Channels" = "concorrencia-2.md" }
+        { "Concorrência I: Goroutines" = "07-concorrencia-1.md" },
+        { "Concorrência II: Channels" = "08-concorrencia-2.md" }
     ]},
-    { "Gerenciamento de Pacotes (Go Modules)" = "gerenciamento-pacotes.md" },
-    { "Testes Automatizados em Go" = "testes-automatizados.md" }
+    { "Gerenciamento de Pacotes (Go Modules)" = "09-gerenciamento-pacotes.md" },
+    { "Testes Automatizados em Go" = "91-testes-automatizados.md" }
+    { "Markdown" = "markdown.md" }
 ]
