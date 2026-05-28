@@ -46,7 +46,7 @@ O tamanho do array é definido no momento da criação e NÃO pode ser alterado 
 
 ### Exemplo Básico
 
-```go
+```go id="5b8j1s"
 var numeros [3]int
 ```
 
@@ -67,13 +67,13 @@ var numeros [3]int
 
 Quando criamos:
 
-```go
+```go id="71fjr4"
 var numeros [3]int
 ```
 
 O Go cria automaticamente:
 
-```txt
+```txt id="8wte7x"
 [0] [0] [0]
 ```
 
@@ -101,7 +101,7 @@ O primeiro índice sempre começa em `0`.
 
 ### Atribuindo valores
 
-```go
+```go id="i0kq2p"
 var numeros [3]int
 
 numeros[0] = 10
@@ -123,7 +123,7 @@ numeros[2] = 30
 
 ### Acessando valores
 
-```go
+```go id="4g9r3w"
 fmt.Println(numeros[0])
 ```
 
@@ -131,7 +131,7 @@ fmt.Println(numeros[0])
 
 ### Saída
 
-```txt
+```txt id="t9z85s"
 10
 ```
 
@@ -139,7 +139,7 @@ fmt.Println(numeros[0])
 
 ### O que acontece aqui?
 
-```go
+```go id="7yoh2m"
 numeros[0]
 ```
 
@@ -153,7 +153,7 @@ Significa:
 
 #### ❌ Errado
 
-```go
+```go id="v1d7cg"
 fmt.Println(numeros[10])
 ```
 
@@ -161,7 +161,7 @@ fmt.Println(numeros[10])
 
 #### 🔥 Erro
 
-```txt
+```txt id="ep0z3d"
 panic: runtime error
 ```
 
@@ -171,7 +171,7 @@ panic: runtime error
 
 O array possui apenas:
 
-```txt
+```txt id="3cwx3m"
 0, 1, 2
 ```
 
@@ -187,7 +187,7 @@ Podemos criar arrays já preenchidos.
 
 ### Exemplo
 
-```go
+```go id="m5r7tx"
 numeros := [3]int{10, 20, 30}
 ```
 
@@ -211,7 +211,7 @@ Go consegue descobrir o tamanho automaticamente.
 
 ### Exemplo
 
-```go
+```go id="n7j9q2"
 numeros := [...]int{1,2,3,4}
 ```
 
@@ -219,7 +219,7 @@ numeros := [...]int{1,2,3,4}
 
 ### O Go entende como:
 
-```go
+```go id="p3v8kb"
 [4]int
 ```
 
@@ -233,7 +233,7 @@ Usamos `len()`.
 
 ### Exemplo
 
-```go
+```go id="8xsyf1"
 numeros := [3]int{10,20,30}
 
 fmt.Println(len(numeros))
@@ -243,7 +243,7 @@ fmt.Println(len(numeros))
 
 ### Saída
 
-```txt
+```txt id="q4k6pn"
 3
 ```
 
@@ -260,7 +260,7 @@ Depois de criado:
 
 ### Exemplo
 
-```go
+```go id="c4nq9x"
 numeros := [3]int{1,2,3}
 ```
 
@@ -276,7 +276,7 @@ Arrays em Go trabalham por valor.
 
 ### Exemplo
 
-```go
+```go id="d3p1qx"
 a := [3]int{1,2,3}
 
 b := a
@@ -291,7 +291,7 @@ fmt.Println(b)
 
 ### Saída
 
-```txt
+```txt id="e1sj7r"
 [1 2 3]
 [100 2 3]
 ```
@@ -302,7 +302,7 @@ fmt.Println(b)
 
 Quando fazemos:
 
-```go
+```go id="f2u7qa"
 b := a
 ```
 
@@ -319,7 +319,7 @@ Ou seja:
 
 #### Usando `for`
 
-```go
+```go id="v6h4ma"
 numeros := [3]int{10,20,30}
 
 for i := 0; i < len(numeros); i++ {
@@ -341,7 +341,7 @@ for i := 0; i < len(numeros); i++ {
 
 #### Usando `range`
 
-```go
+```go id="o5l2vc"
 numeros := [3]int{10,20,30}
 
 for indice, valor := range numeros {
@@ -353,7 +353,7 @@ for indice, valor := range numeros {
 
 ### Saída
 
-```txt
+```txt id="j7f9ny"
 0 10
 1 20
 2 30
@@ -396,7 +396,7 @@ Slices resolvem isso.
 
 ### Exemplo Básico
 
-```go
+```go id="u6g1rp"
 nomes := []string{"Ana", "Carlos", "Maria"}
 ```
 
@@ -431,7 +431,7 @@ Usamos `len()`.
 
 ### Exemplo
 
-```go
+```go id="g0j8ys"
 nomes := []string{"Ana", "Carlos"}
 
 fmt.Println(len(nomes))
@@ -441,7 +441,7 @@ fmt.Println(len(nomes))
 
 ### Saída
 
-```txt
+```txt id="m8x0pw"
 2
 ```
 
@@ -455,7 +455,7 @@ Usamos `cap()`.
 
 ### Exemplo
 
-```go
+```go id="k3r9qt"
 fmt.Println(cap(nomes))
 ```
 
@@ -469,7 +469,7 @@ Usamos `append()`.
 
 ### Exemplo
 
-```go
+```go id="y7c2wv"
 nomes := []string{"Ana"}
 
 nomes = append(nomes, "Carlos")
@@ -479,7 +479,7 @@ nomes = append(nomes, "Carlos")
 
 ### Resultado
 
-```txt
+```txt id="h1b5zs"
 [Ana Carlos]
 ```
 
@@ -504,7 +504,7 @@ Slices apontam para arrays.
 
 ### Exemplo
 
-```go
+```go id="n2v4fd"
 numeros := [5]int{1,2,3,4,5}
 
 slice := numeros[1:4]
@@ -516,7 +516,7 @@ fmt.Println(slice)
 
 ### Resultado
 
-```txt
+```txt id="t4r8xq"
 [2 3 4]
 ```
 
@@ -524,7 +524,7 @@ fmt.Println(slice)
 
 ### Explicação do corte
 
-```go
+```go id="q8m3zb"
 [1:4]
 ```
 
@@ -541,7 +541,7 @@ Significa:
 
 #### Exemplo
 
-```go
+```go id="r5p7lh"
 numeros := [3]int{1,2,3}
 
 slice := numeros[:]
@@ -555,7 +555,7 @@ fmt.Println(numeros)
 
 ### Saída
 
-```txt
+```txt id="b9k2cw"
 [100 2 3]
 ```
 
@@ -571,7 +571,7 @@ Slices compartilham memória com arrays.
 
 #### Exemplo
 
-```go
+```go id="x2f6pm"
 nomes := []string{"Ana", "Carlos", "Maria"}
 
 for indice, valor := range nomes {
@@ -585,7 +585,7 @@ for indice, valor := range nomes {
 
 Maps armazenam dados no formato:
 
-```txt
+```txt id="w6s8eq"
 chave -> valor
 ```
 
@@ -599,7 +599,7 @@ Muito parecido com:
 
 ### Exemplo visual
 
-```txt
+```txt id="l7n5xt"
 "Ana" -> 20
 "Carlos" -> 25
 ```
@@ -608,7 +608,7 @@ Muito parecido com:
 
 ### Exemplo Básico
 
-```go
+```go id="z8h4yu"
 idades := map[string]int{
     "Ana": 20,
     "Carlos": 25,
@@ -631,7 +631,7 @@ idades := map[string]int{
 
 #### Exemplo
 
-```go
+```go id="u1w9pd"
 fmt.Println(idades["Ana"])
 ```
 
@@ -639,7 +639,7 @@ fmt.Println(idades["Ana"])
 
 ### Saída
 
-```txt
+```txt id="e5v7jq"
 20
 ```
 
@@ -649,7 +649,7 @@ fmt.Println(idades["Ana"])
 
 #### Exemplo
 
-```go
+```go id="k8g2ny"
 idades["Maria"] = 30
 ```
 
@@ -659,7 +659,7 @@ idades["Maria"] = 30
 
 #### Exemplo
 
-```go
+```go id="d4f1ox"
 idades["Ana"] = 50
 ```
 
@@ -673,7 +673,7 @@ Usamos `delete()`.
 
 ### Exemplo
 
-```go
+```go id="v3m8ca"
 delete(idades, "Carlos")
 ```
 
@@ -683,7 +683,7 @@ delete(idades, "Carlos")
 
 #### Exemplo
 
-```go
+```go id="a9p4lu"
 idade, existe := idades["Ana"]
 
 fmt.Println(idade)
@@ -694,7 +694,7 @@ fmt.Println(existe)
 
 ### Saída
 
-```txt
+```txt id="y2n7fh"
 20
 true
 ```
@@ -712,7 +712,7 @@ true
 
 ### E se não existir?
 
-```go
+```go id="f7q2rv"
 idade, existe := idades["Pedro"]
 ```
 
@@ -720,7 +720,7 @@ idade, existe := idades["Pedro"]
 
 ### Resultado
 
-```txt
+```txt id="j5x8ke"
 0
 false
 ```
@@ -740,7 +740,7 @@ O map retorna:
 
 #### Exemplo
 
-```go
+```go id="c8r1mv"
 for chave, valor := range idades {
     fmt.Println(chave, valor)
 }
@@ -760,7 +760,7 @@ A ordem pode mudar em cada execução.
 
 #### Exemplo
 
-```go
+```go id="o9h6zk"
 idades := make(map[string]int)
 ```
 
@@ -790,7 +790,7 @@ idades := make(map[string]int)
 
 ## Exemplo Completo
 
-```go
+```go id="p4m8vy"
 package main
 
 import "fmt"
@@ -840,7 +840,7 @@ func main() {
 
 ## Saída Esperada
 
-```txt
+```txt id="q6t1jf"
 [10 20 30]
 
 [Ana Carlos Maria]
